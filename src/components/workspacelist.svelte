@@ -1,7 +1,10 @@
 <script lang="ts">
 	import checklistLogo from '../images/checklist.png'
 	import { onMount } from 'svelte'
+  import tippy from 'tippy.js';
+  import 'tippy.js/dist/tippy.css'; // optional for styling
   import LogoutButton from './LogoutButton.svelte';
+  import HideShowButton from './HideShowButton.svelte';
 	//import dayjs from 'dayjs'
 	const apiBaseUrl = import.meta.env.VITE_API_URL;
 	export let userId: number;
@@ -22,6 +25,12 @@
 	onMount(() => {
 		categoryPopulate()
 	})
+    hideShowButtonTooltip()
+  function hideShowButtonTooltip() {
+    tippy('.hideShowCategories',{
+      content: 'Hide or Show categories with no To Dos currently in it.',
+    });
+  }
 
 	//async function getToDo() {
   //  const response = await fetch(`${apiBaseUrl}/todo`, {
@@ -54,19 +63,6 @@
     //  hideEmptyCategories();
     //}, 100);
   }
-	//function hideEmptyCategories() {
-  //  var arr = Array.from(document.getElementsByClassName("card"));
-  //  for (let i = 0; i < arr.length; i++) {
-  //    const element = arr[i];
-  //    const lists = element.children[1];
-  //    if (lists.childElementCount == 0) {
-  //      element.removeAttribute("style");
-  //      element.setAttribute("style", "display: none;");
-  //    } else {
-  //      element.removeAttribute("style");
-  //    }
-  //  }
-  //}
 	//function workspaceHide(event) {
   //  let target = event.target
   //  if (event.target.localName === 'i') {
@@ -89,7 +85,6 @@
 			<p class="text-lg text-white dark:text-gray-900 text-center col-span-3">ThingsToDo</p>
 		</div>
 		<section class="mt-4">
-      <p class="mt-4 text-lg font-bold">Categories</p>
 			{#each categorie as categories (categories.id)}
 				<!--<article class="my-4 text-white dark:text-gray-900 cursor-pointer categoryHeader"
 					on:click={(event) => workspaceHide(event)}>
@@ -104,5 +99,9 @@
 			{/each}
 		</section>
 	</div>
+        <p class="mt-4 text-lg font-bold dark:text-white text-gray-900">
+          Categories
+          <HideShowButton hideEmpty={hideEmpty}/>
+        </p>
       <LogoutButton/>
 </div>
