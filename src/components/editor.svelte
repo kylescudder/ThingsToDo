@@ -6,5 +6,5 @@
 	<DarkModeToggle/>
 </div>
 <div>	
-	<p class="ml-4">This is the editor</p>
+	<p class="ml-4 dark:text-white text-gray-900">This is the editor</p>
 </div>
