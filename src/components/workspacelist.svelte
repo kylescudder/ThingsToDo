@@ -1,6 +1,7 @@
 <script lang="ts">
 	import checklistLogo from '../images/checklist.png'
 	import { onMount } from 'svelte'
+  import LogoutButton from './LogoutButton.svelte';
 	//import dayjs from 'dayjs'
 	const apiBaseUrl = import.meta.env.VITE_API_URL;
 	export let userId: number;
@@ -102,12 +103,6 @@
     </h2>
 			{/each}
 		</section>
-		<a href="/logout" class="absolute bottom-5 text-white dark:text-gray-900 no-underline float-right">
-			<span>
-				<!-- Heroicon name: solid/lock-closed -->
-				<i class="fa-solid fa-sign-out-alt text-white dark:text-gray-900" />
-			</span>
-				Logout
-		</a>
 	</div>
+      <LogoutButton/>
 </div>
