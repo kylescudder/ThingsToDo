@@ -5,9 +5,12 @@
   import 'tippy.js/dist/tippy.css'; // optional for styling
   import LogoutButton from './LogoutButton.svelte';
   import HideShowButton from './HideShowButton.svelte';
+	import Loading from './Loading.svelte'
 	//import dayjs from 'dayjs'
 	const apiBaseUrl = import.meta.env.VITE_API_URL;
 	export let userId: number;
+  export let hideEmpty: boolean;
+  export let isLoading = false
   let todos: Array<{
     text: String;
     targetDate: Date;
@@ -19,13 +22,19 @@
 	let categorie: Array<{
     id: number;
     text: string;
+    toDoCount: number;
   }> = [];
   //let selected: number;
 
 	onMount(() => {
-		categoryPopulate()
-	})
+    loadContent()
+  })
+  async function loadContent() {
+    isLoading = true
+    await categoryPopulate()
+    isLoading = false
     hideShowButtonTooltip()
+  }
   function hideShowButtonTooltip() {
     tippy('.hideShowCategories',{
       content: 'Hide or Show categories with no To Dos currently in it.',
@@ -78,30 +87,30 @@
   //  }
   //}
 </script>
-<div class="col-span-2 bg-blue-500 h-full dark:bg-gray-300">
-	<div class="ml-3">
-		<div class="grid grid-cols-4 mt-4">
-			<img class="h-8 w-auto col-span-1" src={checklistLogo} alt="Checklist Logo">	
-			<p class="text-lg text-white dark:text-gray-900 text-center col-span-3">ThingsToDo</p>
-		</div>
-		<section class="mt-4">
-			{#each categorie as categories (categories.id)}
-				<!--<article class="my-4 text-white dark:text-gray-900 cursor-pointer categoryHeader"
-					on:click={(event) => workspaceHide(event)}>
-					<i class="fa-solid fa-book"></i>
-					{workspace.name}
-					  <i class="fa-solid fa-chevron-right float-right mr-4"></i>
-				</article>-->
-				<h2 on:click={(event) => console.log('test')} class="categoryHeader m-2 w-auto">
-      {categories.text}
-      <!--<i class="fa-solid fa-arrow-right pl-2"></i>-->
-    </h2>
-			{/each}
-		</section>
-	</div>
+<div class="col-span-2 bg-blue-500 h-full dark:bg-gray-700">
+  <div class="ml-3">
+    {#if isLoading}
+      <Loading/>
+    {:else}
+      <div class="grid grid-cols-4 mt-4">
+        <img class="h-8 w-auto col-span-1" src={checklistLogo} alt="Checklist Logo">	
+        <p class="text-lg dark:text-white text-gray-900 text-center col-span-3">ThingsToDo</p>
+      </div>
+      <section class="mt-4">
         <p class="mt-4 text-lg font-bold dark:text-white text-gray-900">
           Categories
           <HideShowButton hideEmpty={hideEmpty}/>
         </p>
+        {#each categorie as categories (categories.id)}
+          <h2 on:click={(event) => console.log('test')}
+            class="categoryHeader m-2 w-auto dark:text-white text-gray-900"
+            class:hidden={categories.toDoCount === 0}
+            data-count={categories.toDoCount}>
+            {categories.text}
+          </h2>
+        {/each}
+      </section>
       <LogoutButton/>
+    {/if}
+  </div>
 </div>
