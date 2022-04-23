@@ -9,7 +9,8 @@ import { onMount } from "svelte";
 			themeToggleBtn.addEventListener('click', function() {
 				// if set via local storage previously
 				if (localStorage.getItem('color-theme')) {
-					if (localStorage.getItem('color-theme') === 'light' || !('color-theme' in localStorage)) {
+					console.log(window.matchMedia('(prefers-color-scheme: dark)'))
+					if (localStorage.getItem('color-theme') === 'light' || !('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 						setDarkTheme();
 					} else {
 						setLightTheme();
