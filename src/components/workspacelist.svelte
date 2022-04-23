@@ -101,13 +101,8 @@
           Categories
           <HideShowButton hideEmpty={hideEmpty}/>
         </p>
-        {#each categorie as categories (categories.id)}
-          <h2 on:click={(event) => console.log('test')}
-            class="categoryHeader m-2 w-auto dark:text-white text-gray-900"
-            class:hidden={categories.toDoCount === 0}
-            data-count={categories.toDoCount}>
-            {categories.text}
-          </h2>
+        {#each categories as category (category.id)}
+          <Categorie {category} {apiBaseUrl} {userId} {todos} />
         {/each}
       </section>
       <LogoutButton/>
