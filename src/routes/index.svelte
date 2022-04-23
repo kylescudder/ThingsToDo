@@ -38,7 +38,7 @@ import { onMount } from 'svelte';
 				>
 					<span class="absolute left-0 inset-y-0 flex items-center pl-3">
 						<!-- Heroicon name: solid/lock-closed -->
-						<i class="fa-solid fa-sign-in-alt text-indigo-500 group-hover:text-indigo-400">
+						<i class="fas fa-sign-in-alt text-indigo-500 group-hover:text-indigo-400">
 					</span>
 					Login with GitHub
 				</a>

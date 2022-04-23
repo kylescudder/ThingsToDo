@@ -1,5 +1,28 @@
 <script lang="ts">
-	export let hideEmpty: boolean
+  import { onMount } from 'svelte'
+  import tippy, {animateFill} from 'tippy.js';
+  import 'tippy.js/dist/tippy.css'; // optional for styling
+  import 'tippy.js/dist/backdrop.css';
+  import 'tippy.js/animations/shift-away-subtle.css';
+	
+  let hideEmpty: boolean
+
+  onMount(() => {
+    hideShowButtonTooltip()
+  })
+
+  function hideShowButtonTooltip() {
+    tippy('.hideShowCategories',{
+      content: 'Hide or Show categories with no To Dos currently in it.',
+      placement: 'right',
+      inertia: true,
+      animation: 'shift-away-subtle',
+      animateFill: true,
+      plugins: [animateFill],
+      delay: [350, null],
+    });
+  }
+
 	function hideEmptyCategories(e: MouseEvent) {
     if (e.target !== null) {
       const categoryHeader = document.querySelectorAll('.categoryHeader')
@@ -24,14 +47,17 @@
             element.classList.add('hidden');
           }
         }
-    });
+      });
     }
+    setTimeout(() => {
+      hideShowButtonTooltip()
+    }, 200);
   }
 </script>
 {#if hideEmpty !== false}
-	<i class="fa-solid fa-eye-slash hiddenCategory hideShowCategories dark:text-white text-gray-900" 
+	<i class="fas fa-eye-slash hiddenCategory hideShowCategories dark:text-white text-gray-900" 
 		on:click={(event) => hideEmptyCategories(event)}></i>
 {:else}
-	<i class="fa-solid fa-eye hideShowCategories dark:text-white text-gray-900" 
+	<i class="fas fa-eye hideShowCategories dark:text-white text-gray-900" 
 		on:click={(event) => hideEmptyCategories(event)}></i>
 {/if}
