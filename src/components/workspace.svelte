@@ -24,7 +24,7 @@
  <Loading/>
 {:else}
 	<div class="grid grid-cols-12 h-full w-full">
-		<WorkspaceList {userId} {todos} {apiBaseUrl} />
+		<WorkspaceList {userId} bind:todos={todos} {apiBaseUrl} />
 		<div class="col-span-10 bg-slate-100 dark:bg-slate-900">
 			<Editor {userId} {todos} {apiBaseUrl} />
 		</div>

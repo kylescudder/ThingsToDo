@@ -62,7 +62,7 @@
           <HideShowButton/>
         </p>
         {#each categories as category (category.id)}
-          <Categorie {category} {apiBaseUrl} {userId} {todos} />
+          <Categorie {category} {apiBaseUrl} {userId} bind:todos={todos} />
         {/each}
       </section>
       <LogoutButton/>
