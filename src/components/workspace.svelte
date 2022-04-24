@@ -2,6 +2,7 @@
 	import WorkspaceList from '../components/workspacelist.svelte';
 	import Editor from '../components/editor.svelte';
 	import Loading from './Loading.svelte'
+	import type { todo } from '../interfaces'
 
 	const apiBaseUrl = import.meta.env.VITE_API_URL;
 
@@ -11,14 +12,7 @@
 	setTimeout(() => {
 		isLoading = false
 	}, 300);
-	export let todos: Array<{
-    text: String;
-    targetDate: Date;
-    targetDateString: string;
-    completed: boolean;
-    id: number;
-    categorieId: number;
-  }> = [];
+	export let todos: Array<todo> = [];
 </script>
 {#if isLoading}
  <Loading/>

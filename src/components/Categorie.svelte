@@ -1,19 +1,15 @@
 <script lang="ts">
   import dayjs from 'dayjs'
 
+  import type { todo } from '../interfaces'
+
 	export let category: {
     id: number;
     text: string;
     toDoCount: number;
   };
-	export let todos: Array<{
-    text: String;
-    targetDate: Date;
-    targetDateString: string;
-    completed: boolean;
-    id: number;
-    categorieId: number;
-  }> = [];
+	export let todos: Array<todo> = [];
+
 	export let apiBaseUrl: string
 	export let userId: number
 

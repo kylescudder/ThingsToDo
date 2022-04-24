@@ -6,23 +6,14 @@
 	import Loading from './Loading.svelte'
 	import Categorie from './Categorie.svelte'
 	import checklistLogo from '../images/checklist.png'
-  
+  import type { todo, categoryList } from '../interfaces'
+
   export let apiBaseUrl: string
 	export let userId: number
   export let isLoading = false
-	let categories: Array<{
-    id: number;
-    text: string;
-    toDoCount: number;
-  }> = [];
-  export let todos: Array<{
-    text: String;
-    targetDate: Date;
-    targetDateString: string;
-    completed: boolean;
-    id: number;
-    categorieId: number;
-  }> = [];
+	let categories: Array<categoryList> = [];
+	export let todos: Array<todo> = [];
+
   //let selected: number;
 
 	onMount(() => {
