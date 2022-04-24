@@ -1,13 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import 'tw-elements';
   
   import LogoutButton from './LogoutButton.svelte'
   import HideShowButton from './HideShowButton.svelte'
 	import Loading from './Loading.svelte'
 	import Categorie from './Categorie.svelte'
+	import Modal from './Modal.svelte'
 	import checklistLogo from '../images/checklist.png'
   import type { todo, categoryList } from '../interfaces'
-
   export let apiBaseUrl: string
 	export let userId: number
   export let isLoading = false
@@ -51,6 +52,8 @@
         <p class="mt-4 text-lg font-bold text-white">
           Categories
           <HideShowButton/>
+          <i class="fas fa-plus cursor-pointer" data-bs-toggle="modal" data-bs-target='#addCategory' />
+          <Modal id='addCategory' title='Add Category'/>
         </p>
         {#each categories as category (category.id)}
           <Categorie {category} {apiBaseUrl} {userId} bind:todos={todos} />

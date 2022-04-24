@@ -342,3 +342,6 @@ body {
 	transition-duration: 0.4s;
   transition-property: transform;
 }
+.btn-close {
+  background: none;
+}
