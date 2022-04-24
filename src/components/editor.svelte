@@ -13,7 +13,9 @@
 	<DarkModeToggle/>
 </div>
 <div class="relative flex min-h-screen flex-col mt-20">
-	{#each todos as todoItem (todoItem.id)}
-		<ToDo {userId} {todoItem} {apiBaseUrl}/>
-	{/each}
+	{#if todos !== undefined}
+		{#each todos as todoItem (todoItem.id)}
+			<ToDo {userId} {todoItem} {apiBaseUrl} bind:todos={todos} />
+		{/each}
+	{/if}
 </div>
