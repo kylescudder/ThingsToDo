@@ -8,8 +8,8 @@
 	export let apiBaseUrl: string
 	export let userId: number
 	export let todoItem: todo
-
-	async function clickToDo(todoItem: todo) {
+	export let todos: Array<todo> = [];
+	async function clickToDo(todoItem: todo, event: MouseEvent) {
 		todoItem.completed = !todoItem.completed;
 
 		const response = await fetch(`${apiBaseUrl}/todo`, {
@@ -55,8 +55,9 @@
 	}
 </script>
 <div class="mx-auto w-11/12 bg-blue-500 h-full dark:bg-gray-700 cursor-pointer
-	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60"
-	on:click={event => clickToDo(todoItem)} data-id={todoItem.id}>
+	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60 todoItem"
+	on:click={(event) => clickToDo(todoItem, event)} 
+		data-id={todoItem.id} data-categorieid={todoItem.categorieId}>
 	<div class="grid grid-cols-6">
 		<div class="p-4 float-left col-span-4 my-auto">
 			<span class="text-2xl font-medium float-left text-white inline-block align-middle">{todoItem.text}</span>
