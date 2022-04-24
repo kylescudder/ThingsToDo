@@ -43,6 +43,7 @@
 		"dayjs": "^1.11.1",
 		"polka": "^0.5.2",
 		"simple-notify": "^0.5.4",
-		"tippy.js": "^6.3.7"
+		"tippy.js": "^6.3.7",
+		"tw-elements": "^1.0.0-alpha12"
 	}
 }

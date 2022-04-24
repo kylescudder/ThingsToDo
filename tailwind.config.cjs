@@ -1,11 +1,11 @@
 module.exports = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/tw-elements/dist/js/**/*.js'],
 	theme: {
 		borderWidth: {
 			DEFAULT: '1px',
 			3: '3px'
 		}
 	},
-	plugins: [],
+	plugins: [require('tw-elements/dist/plugin')],
 	darkMode: 'class'
 };
