@@ -3,6 +3,7 @@
 	import 'simple-notify/dist/simple-notify.min.css'
 	
 	import type { todo } from '../interfaces'
+	import { getToDo } from '../todo'
 
 	export let apiBaseUrl: string
 	export let userId: number
@@ -21,7 +22,7 @@
         "content-type": "application/json",
       },
     });
-		console.log(response)
+		todos = await getToDo(event.target.closest('.todoItem').getAttribute('data-categorieid'), apiBaseUrl, userId)
 		successToast(todoItem)
   }
 	async function successToast(todoItem: todo) {

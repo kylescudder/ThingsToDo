@@ -9,6 +9,7 @@ export let todos: Array<{
 }> = [];
 
 export async function getToDo(categoryId: string, apiBaseUrl: string, userId: number) {
+	todos = []
 	const response = await fetch(`${apiBaseUrl}/todo`, {
 		method: "POST",
 		body: JSON.stringify({
@@ -19,10 +20,15 @@ export async function getToDo(categoryId: string, apiBaseUrl: string, userId: nu
 			"content-type": "application/json",
 		},
 	});
-	const payload = await response.json();
-	todos = payload.data;
-	todos.forEach(todo => {
-		todo.targetDateString = dayjs(todo.targetDate).format('DD/MM/YYYY HH:mm')
-	});
+	if (response.status === 200) {
+
+		const payload = await response.json();
+		todos = payload.data;
+		if (todos !== undefined) {
+			todos.forEach(todo => {
+				todo.targetDateString = dayjs(todo.targetDate).format('DD/MM/YYYY HH:mm')
+			});
+		}
+	}
 	return todos;
 }
