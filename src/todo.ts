@@ -5,7 +5,7 @@ export let todos: Array<{
 	targetDateString: string;
 	completed: boolean;
 	id: number;
-	categorieId: number;
+	categoryId: number;
 }> = [];
 
 export async function getToDo(categoryId: string, apiBaseUrl: string, userId: number) {
@@ -14,7 +14,7 @@ export async function getToDo(categoryId: string, apiBaseUrl: string, userId: nu
 		method: "POST",
 		body: JSON.stringify({
 			githubId: userId,
-			categorieId: categoryId
+			categoryId: categoryId
 		}),
 		headers: {
 			"content-type": "application/json",

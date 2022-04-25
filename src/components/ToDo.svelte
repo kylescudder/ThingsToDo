@@ -22,7 +22,7 @@
         "content-type": "application/json",
       },
     });
-		todos = await getToDo(event.target.closest('.todoItem').getAttribute('data-categorieid'), apiBaseUrl, userId)
+		todos = await getToDo(event.target.closest('.todoItem').getAttribute('data-categoryid'), apiBaseUrl, userId)
 		successToast(todoItem)
   }
 	async function successToast(todoItem: todo) {
@@ -57,7 +57,7 @@
 <div class="mx-auto w-11/12 bg-blue-500 h-full dark:bg-gray-700 cursor-pointer
 	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60 todoItem"
 	on:click={(event) => clickToDo(todoItem, event)} 
-		data-id={todoItem.id} data-categorieid={todoItem.categorieId}>
+		data-id={todoItem.id} data-categoryid={todoItem.categoryId}>
 	<div class="grid grid-cols-6">
 		<div class="p-4 float-left col-span-4 my-auto">
 			<span class="text-2xl font-medium float-left text-white inline-block align-middle">{todoItem.text}</span>

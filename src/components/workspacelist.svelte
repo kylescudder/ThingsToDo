@@ -5,15 +5,15 @@
   import LogoutButton from './LogoutButton.svelte'
   import HideShowButton from './HideShowButton.svelte'
 	import Loading from './Loading.svelte'
-	import Categorie from './Categorie.svelte'
+	import Category from './Category.svelte'
 	import Modal from './Modal.svelte'
 	import checklistLogo from '../images/checklist.png'
   import type { todo, categoryList } from '../interfaces'
   export let apiBaseUrl: string
-	export let userId: number
+  export let userId: number
   export let isLoading = false
-	let categories: Array<categoryList> = [];
 	export let todos: Array<todo> = [];
+  export let categories: Array<categoryList> = [];
 
   //let selected: number;
 
@@ -56,7 +56,7 @@
           <Modal id='addCategory' title='Add Category'/>
         </p>
         {#each categories as category (category.id)}
-          <Categorie {category} {apiBaseUrl} {userId} bind:todos={todos} />
+          <Category {category} {apiBaseUrl} {userId} bind:todos={todos} />
         {/each}
       </section>
       <LogoutButton/>

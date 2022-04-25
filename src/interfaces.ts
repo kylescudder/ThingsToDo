@@ -4,7 +4,7 @@ export interface todo {
 	targetDateString: string;
 	completed: boolean;
 	id: number;
-	categorieId: number;
+	categoryId: number;
 }
 export interface categoryList {
 	id: number;
