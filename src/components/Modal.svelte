@@ -41,30 +41,8 @@
 					placeholder="Example label"
 				/>
       </div>
-      <div
-        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 rounded-b-md">
-        <button type="button" class="inline-block 
-				px-6 
-				py-2.5 
-				bg-transparent 
-				text-blue-600
-				dark:text-white 
-				font-medium 
-				text-xs 
-				leading-tight 
-				uppercase 
-				rounded 
-				hover:text-blue-700 
-				hover:bg-gray-100 
-				focus:bg-gray-100 
-				dark:hover:bg-gray-600 
-				dark:focus:bg-gray-600 
-				focus:outline-none 
-				focus:ring-0 
-				active:bg-gray-200 
-				transition duration-150 
-				ease-in-out" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="px-6
+      <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 rounded-b-md">
+				<button type="button" on:click={clickFuncion()} class="px-6
 					py-2.5
 					bg-blue-600
 					text-white
@@ -80,8 +58,8 @@
 					active:bg-blue-800 active:shadow-lg
 					transition
 					duration-150
-					ease-in-out
-					ml-1">Add</button>
+					ease-in-out">Add</button>
+				<button type="button" class="btnCloseModal" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
