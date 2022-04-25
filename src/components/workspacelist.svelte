@@ -8,9 +8,12 @@
 	import Category from './Category.svelte'
 	import Modal from './Modal.svelte'
 	import checklistLogo from '../images/checklist.png'
-  import type { todo, categoryList } from '../interfaces'
+  import type { todo } from '../interfaces'
+  import { categoriesPopulate, addCategory } from '../categories'
+  import type { categoryList } from '../interfaces'
   export let apiBaseUrl: string
   export let userId: number
+	export let newCategory: string
   export let isLoading = false
 	export let todos: Array<todo> = [];
   export let categories: Array<categoryList> = [];
@@ -22,21 +25,8 @@
   })
   async function loadContent() {
     isLoading = true
-    await categoryPopulate()
+    categories = await categoriesPopulate(apiBaseUrl, userId)
     isLoading = false
-  }
-  async function categoryPopulate() {
-    const categorieResponse = await fetch(`${apiBaseUrl}/categories`, {
-			method: "POST",
-      body: JSON.stringify({
-        githubId: userId,
-      }),
-			headers: {
-        "content-type": "application/json",
-      },
-    });
-    const categoriePayload = await categorieResponse.json();
-    categories = categoriePayload.payload;
   }
 </script>
 <div class="col-span-2 bg-blue-500 h-full dark:bg-gray-700">
@@ -53,7 +43,7 @@
           Categories
           <HideShowButton/>
           <i class="fas fa-plus cursor-pointer" data-bs-toggle="modal" data-bs-target='#addCategory' />
-          <Modal id='addCategory' title='Add Category'/>
+          <Modal id='addCategory' title='Add Category' clickFuncion={addCategory(newCategory)}/>
         </p>
         {#each categories as category (category.id)}
           <Category {category} {apiBaseUrl} {userId} bind:todos={todos} />

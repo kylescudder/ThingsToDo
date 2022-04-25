@@ -1,6 +1,8 @@
 <script lang="ts">
 	export let id: string
 	export let title: string
+	export let newCategory: string
+	export let clickFuncion
 </script>
 <!-- Modal -->
 <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
@@ -20,6 +22,7 @@
       <div class="modal-body relative p-4">
 	      <input
 					type="text"
+					bind:value={newCategory}
 					class="
 						form-control
 						block
