@@ -9,16 +9,15 @@
 	import Modal from './Modal.svelte'
 	import checklistLogo from '../images/checklist.png'
   import type { todo } from '../interfaces'
-  import { categoriesPopulate, addCategory } from '../categories'
+  import { categoriesPopulate } from '../categories'
   import type { categoryList } from '../interfaces'
   export let apiBaseUrl: string
   export let userId: number
-	export let newCategory: string
   export let isLoading = false
 	export let todos: Array<todo> = [];
   export let categories: Array<categoryList> = [];
-
-  //let selected: number;
+  export let categoryText: string;
+  export let categoryId: number;
 
 	onMount(() => {
     loadContent()
