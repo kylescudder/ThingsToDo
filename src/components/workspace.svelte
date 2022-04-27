@@ -1,8 +1,8 @@
 <script lang="ts">
 	import WorkspaceList from '../components/workspacelist.svelte';
-	import Editor from '../components/editor.svelte';
+	import Editor from './Editor.svelte';
 	import Loading from './Loading.svelte'
-	import type { todo } from '../interfaces'
+	import type { categoryList, todo } from '../interfaces'
 
 	const apiBaseUrl = import.meta.env.VITE_API_URL;
 
@@ -14,6 +14,8 @@
 		isLoading = false
 	}, 300);
 	export let todos: Array<todo> = [];
+	export let categories: Array<categoryList> = [];
+	export let categoryId: number
 </script>
 {#if isLoading}
  <Loading/>
