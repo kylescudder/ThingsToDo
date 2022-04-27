@@ -1,13 +1,17 @@
 <script type="ts">
-	import DarkModeToggle from '../components/DarkModeToggle.svelte'
-	import ToDo from '../components/ToDo.svelte'
-	import type { todo } from '../interfaces'
+	import DarkModeToggle from './DarkModeToggle.svelte'
+	import ToDo from './ToDo.svelte'
+	import type { categoryList, todo } from '../interfaces'
+	import AddToDo from './AddToDo.svelte'
 
-	export let apiBaseUrl: string
 	export let userId: number
 	export let todos: Array<todo> = [];
-	let todoItem: todo;
+	export let categories: Array<categoryList> = [];
+	export let apiBaseUrl: string
 	export let categoryText: string
+	export let categoryId: number
+	export let todoText: string
+	export let todoDate: Date
 </script>
 
 <div class="w-full h-12 mt-2">
