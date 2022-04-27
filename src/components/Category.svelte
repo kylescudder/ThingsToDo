@@ -8,9 +8,11 @@
 	export let categoryId: number
 	export let apiBaseUrl: string
 	export let userId: number
-
-  async function fetchToDo(event) {
-    todos = await getToDo(event.target.getAttribute('data-id'), apiBaseUrl, userId)
+	
+  async function fetchToDo(event: MouseEvent) {
+		categoryText = event.target!.innerHTML
+		categoryId = event.target!.getAttribute('data-id')
+		todos = await getToDo(event.target.getAttribute('data-id'), apiBaseUrl, userId)
   }
 </script>
 <h2
