@@ -45,7 +45,7 @@
             <HideShowButton/>
           {/if}
           <i class="fas fa-plus cursor-pointer" data-bs-toggle="modal" data-bs-target='#addCategory' />
-          <Modal id='addCategory' title='Add Category' clickFuncion={addCategory(newCategory)}/>
+          <Modal id='addCategory' title='Add Category' {apiBaseUrl} {userId} bind:todos={todos} bind:categoryText={categoryText} />
         </p>
         {#if categories.length !== 0}
           {#each categories as category (category.id)}

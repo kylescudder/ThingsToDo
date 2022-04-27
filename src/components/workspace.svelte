@@ -8,6 +8,7 @@
 
 	export let isLoading = false
 	export let userId: number;
+	export let categoryText: string
 	isLoading = true
 	setTimeout(() => {
 		isLoading = false
@@ -18,9 +19,9 @@
  <Loading/>
 {:else}
 	<div class="grid grid-cols-12 h-full w-full">
-		<WorkspaceList {userId} bind:todos={todos} {apiBaseUrl} />
+		<WorkspaceList bind:categoryText={categoryText} {userId} bind:todos={todos} bind:categoryId={categoryId} {apiBaseUrl} {categories} />
 		<div class="col-span-10 bg-slate-100 dark:bg-slate-900">
-			<Editor {userId} {todos} {apiBaseUrl} />
+			<Editor {userId} {todos} {apiBaseUrl} {categoryText} {categoryId} bind:categories={categories} />
 		</div>
 	</div>
 {/if}
