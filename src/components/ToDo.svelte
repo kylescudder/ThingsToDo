@@ -54,8 +54,8 @@
 		})
 	}
 </script>
-<div class="mx-auto w-11/12 bg-blue-500 h-full dark:bg-gray-700 cursor-pointer
-	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60 todoItem"
+<div class="bg-blue-500 h-full dark:bg-gray-700 cursor-pointer
+	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60 todoItem my-8"
 	on:click={(event) => clickToDo(todoItem, event)} 
 		data-id={todoItem.id} data-categoryid={todoItem.categoryId}>
 	<div class="grid grid-cols-6">
