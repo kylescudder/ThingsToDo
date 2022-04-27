@@ -1,14 +1,8 @@
 import dayjs from 'dayjs'
-export let todos: Array<{
-	text: string;
-	targetDate: Date;
-	targetDateString: string;
-	completed: boolean;
-	id: number;
-	categoryId: number;
-}> = [];
+import type { todo } from './interfaces';
+export let todos: Array<todo> = [];
 
-export async function getToDo(categoryId: string, apiBaseUrl: string, userId: number) {
+export async function getToDo(categoryId: number, apiBaseUrl: string, userId: number) {
 	todos = []
 	const response = await fetch(`${apiBaseUrl}/todo`, {
 		method: "POST",
@@ -21,7 +15,6 @@ export async function getToDo(categoryId: string, apiBaseUrl: string, userId: nu
 		},
 	});
 	if (response.status === 200) {
-
 		const payload = await response.json();
 		todos = payload.data;
 		if (todos !== undefined) {
@@ -31,4 +24,20 @@ export async function getToDo(categoryId: string, apiBaseUrl: string, userId: nu
 		}
 	}
 	return todos;
+}
+export async function addToDo(categoryId: number, todoText: string, todoDate: Date,
+	apiBaseUrl: string, userId: number) {
+	await fetch(`${apiBaseUrl}/addtodo`, {
+		method: "POST",
+		body: JSON.stringify({
+			githubId: userId,
+			text: todoText,
+			targetDate: todoDate,
+			categoryId: categoryId
+
+		}),
+		headers: {
+			"content-type": "application/json",
+		},
+	});
 }
