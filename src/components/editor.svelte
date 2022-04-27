@@ -20,6 +20,9 @@
 		{:else}
 			<p class="text-2xl dark:text-white text-blue-700"><i class="fas fa-arrow-left"></i> Select a category</p>
 		{/if}
+			{#if todos.length !== 0 || categoryText !== undefined}
+				<AddToDo {todoText} {todoDate} {categoryId} {apiBaseUrl} {userId} bind:todos={todos} bind:categories={categories} />
+			{/if}
 		{#each todos as todoItem (todoItem.id)}
 			<ToDo {userId} {todoItem} {apiBaseUrl} bind:todos={todos} />
 		{/each}
