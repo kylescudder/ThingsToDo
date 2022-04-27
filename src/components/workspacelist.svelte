@@ -41,13 +41,20 @@
       <section class="mt-4">
         <p class="mt-4 text-lg font-bold text-white">
           Categories
-          <HideShowButton/>
+          {#if categories.length !== 0}
+            <HideShowButton/>
+          {/if}
           <i class="fas fa-plus cursor-pointer" data-bs-toggle="modal" data-bs-target='#addCategory' />
           <Modal id='addCategory' title='Add Category' clickFuncion={addCategory(newCategory)}/>
         </p>
-        {#each categories as category (category.id)}
-          <Category {category} {apiBaseUrl} {userId} bind:todos={todos} />
-        {/each}
+        {#if categories.length !== 0}
+          {#each categories as category (category.id)}
+            <Category bind:categoryText={categoryText} bind:categoryId={categoryId} {category} {apiBaseUrl} {userId} bind:todos={todos} />
+          {/each}
+        {:else}
+          <p class="text-white text-lg mt-4 text-center">Add a category using the 
+            <i class="fas fa-plus"></i> icon above.</p>
+        {/if}
       </section>
       <LogoutButton/>
     {/if}
