@@ -1,11 +1,15 @@
+import { categoryList, apiBaseUrl, categoryTEXT } from "$lib/stores";
 import type { todo } from "./interfaces";
 import { getToDo } from "./todo";
 
-export let categoryText: string
+let payloadApiBaseUrl = ''
+apiBaseUrl.subscribe(value => {
+	payloadApiBaseUrl = value;
+});
 export let todos: Array<todo> = [];
 
-export async function categoriesPopulate(apiBaseUrl: string, userId: number) {
-	const categoriesResponse = await fetch(`${apiBaseUrl}/categories`, {
+export async function categoriesPopulate(userId: number) {
+	const categoriesResponse = await fetch(`${payloadApiBaseUrl}/categories`, {
 		method: "POST",
 		body: JSON.stringify({
 			githubId: userId,
@@ -15,11 +19,11 @@ export async function categoriesPopulate(apiBaseUrl: string, userId: number) {
 		},
 	});
 	const categoriesPayload = await categoriesResponse.json();
-	return categoriesPayload.payload;
+	categoryList.set(categoriesPayload.payload)
 }
-export async function addCategory(newCategory: string, apiBaseUrl: string, userId: number) {
+export async function addCategory(newCategory: string, userId: number) {
 	todos = []
-	const response = await fetch(`${apiBaseUrl}/category`, {
+	const response = await fetch(`${payloadApiBaseUrl}/category`, {
 		method: 'POST',
 		body: JSON.stringify({
 			categoryText: newCategory,
@@ -29,18 +33,17 @@ export async function addCategory(newCategory: string, apiBaseUrl: string, userI
 			'content-type': 'application/json',
 		},
 	})
-	let categoryId: string
+	let categoryId: number
 	if (response.status === 200) {
 		const payload = await response.json();
 		categoryId = payload.data.categoryId
-		categoriesPopulate(apiBaseUrl, userId)    
+		categoriesPopulate(userId)    
 			.catch(() => {
 				console.log('Getting categories failed')
 			})
-		todos = await getToDo(categoryId, apiBaseUrl, userId)
-		return todos
+		categoryTEXT.set(newCategory)
+		await getToDo(categoryId, userId)
 	} else {
 		alert('Failed to add category')
-		return todos
 	}
 }

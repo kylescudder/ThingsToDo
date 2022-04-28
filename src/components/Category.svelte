@@ -1,18 +1,14 @@
 <script lang="ts">
   import { getToDo } from '../todo';
-  import type { categoryList, todo } from '../interfaces'
+  import type { category } from '../interfaces'
+	import { categoryTEXT } from '../lib/stores'
 
-	export let category: categoryList;
-	export let todos: Array<todo> = [];
-	export let categoryText: string
-	export let categoryId: number
-	export let apiBaseUrl: string
+	export let category: category;
 	export let userId: number
-	
+
   async function fetchToDo(event: MouseEvent) {
-		categoryText = event.target!.innerHTML
-		categoryId = event.target!.getAttribute('data-id')
-		todos = await getToDo(event.target.getAttribute('data-id'), apiBaseUrl, userId)
+		categoryTEXT.set(event.target!.innerHTML)
+		await getToDo(event.target.getAttribute('data-id'), userId)
   }
 </script>
 <h2

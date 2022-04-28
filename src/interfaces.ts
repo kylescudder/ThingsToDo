@@ -6,7 +6,7 @@ export interface todo {
 	id: number;
 	categoryId: number;
 }
-export interface categoryList {
+export interface category {
 	id: number;
 	text: string;
 	toDoCount: number;

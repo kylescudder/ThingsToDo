@@ -1,10 +1,15 @@
 import dayjs from 'dayjs'
 import type { todo } from './interfaces';
+import { todoList, categoryID, apiBaseUrl, categoryTEXT } from './lib/stores';
 export let todos: Array<todo> = [];
+let payloadApiBaseUrl = ''
+apiBaseUrl.subscribe(value => {
+	payloadApiBaseUrl = value;
+});
 
-export async function getToDo(categoryId: number, apiBaseUrl: string, userId: number) {
+export async function getToDo(categoryId: number, userId: number) {
 	todos = []
-	const response = await fetch(`${apiBaseUrl}/todo`, {
+	const response = await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: "POST",
 		body: JSON.stringify({
 			githubId: userId,
@@ -23,11 +28,12 @@ export async function getToDo(categoryId: number, apiBaseUrl: string, userId: nu
 			});
 		}
 	}
-	return todos;
+	categoryID.set(categoryId)
+	todoList.set(todos)
 }
 export async function addToDo(categoryId: number, todoText: string, todoDate: Date,
-	apiBaseUrl: string, userId: number) {
-	await fetch(`${apiBaseUrl}/addtodo`, {
+	userId: number) {
+	await fetch(`${payloadApiBaseUrl}/addtodo`, {
 		method: "POST",
 		body: JSON.stringify({
 			githubId: userId,

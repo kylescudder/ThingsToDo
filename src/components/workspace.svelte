@@ -2,28 +2,24 @@
 	import WorkspaceList from '../components/workspacelist.svelte';
 	import Editor from './Editor.svelte';
 	import Loading from './Loading.svelte'
-	import type { categoryList, todo } from '../interfaces'
-
-	const apiBaseUrl = import.meta.env.VITE_API_URL;
+	import type { category, todo } from '../interfaces'
 
 	export let isLoading = false
 	export let userId: number;
-	export let categoryText: string
 	isLoading = true
 	setTimeout(() => {
 		isLoading = false
 	}, 300);
 	export let todos: Array<todo> = [];
-	export let categories: Array<categoryList> = [];
-	export let categoryId: number
+	export let categories: Array<category> = [];
 </script>
 {#if isLoading}
  <Loading/>
 {:else}
 	<div class="grid grid-cols-12 h-full w-full">
-		<WorkspaceList bind:categoryText={categoryText} {userId} bind:todos={todos} bind:categoryId={categoryId} {apiBaseUrl} {categories} />
+		<WorkspaceList {userId} {categories} />
 		<div class="col-span-10 bg-slate-100 dark:bg-slate-900">
-			<Editor {userId} {todos} {apiBaseUrl} {categoryText} {categoryId} bind:categories={categories} />
+			<Editor {userId} {todos} />
 		</div>
 	</div>
 {/if}

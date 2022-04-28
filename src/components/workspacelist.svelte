@@ -8,25 +8,26 @@
 	import Category from './Category.svelte'
 	import Modal from './Modal.svelte'
 	import checklistLogo from '../images/checklist.png'
-  import type { todo } from '../interfaces'
+  import type { category } from '../interfaces'
   import { categoriesPopulate } from '../categories'
-  import type { categoryList } from '../interfaces'
-  export let apiBaseUrl: string
+  import { categoryList } from '../lib/stores'
+
   export let userId: number
   export let isLoading = false
-	export let todos: Array<todo> = [];
-  export let categories: Array<categoryList> = [];
-  export let categoryText: string;
-  export let categoryId: number;
 
 	onMount(() => {
     loadContent()
   })
   async function loadContent() {
     isLoading = true
-    categories = await categoriesPopulate(apiBaseUrl, userId)
+    await categoriesPopulate(userId)
     isLoading = false
   }
+  let payload: Array<category> = []
+
+	categoryList.subscribe(value => {
+		payload = value;
+	});
 </script>
 <div class="col-span-2 bg-blue-500 h-full dark:bg-gray-700">
   <div class="ml-3">
@@ -40,15 +41,15 @@
       <section class="mt-4">
         <p class="mt-4 text-lg font-bold text-white">
           Categories
-          {#if categories.length !== 0}
+          {#if payload.length !== 0}
             <HideShowButton/>
           {/if}
           <i class="fas fa-plus cursor-pointer" data-bs-toggle="modal" data-bs-target='#addCategory' />
-          <Modal id='addCategory' title='Add Category' {apiBaseUrl} {userId} bind:todos={todos} bind:categoryText={categoryText} />
+          <Modal id='addCategory' title='Add Category' {userId} />
         </p>
-        {#if categories.length !== 0}
-          {#each categories as category (category.id)}
-            <Category bind:categoryText={categoryText} bind:categoryId={categoryId} {category} {apiBaseUrl} {userId} bind:todos={todos} />
+        {#if payload.length !== 0}
+          {#each payload as category (category.id)}
+            <Category {category} {userId} />
           {/each}
         {:else}
           <p class="text-white text-lg mt-4 text-center">Add a category using the 

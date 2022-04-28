@@ -5,10 +5,8 @@
 	import type { todo } from '../interfaces'
 	import { getToDo } from '../todo'
 
-	export let apiBaseUrl: string
 	export let userId: number
 	export let todoItem: todo
-	export let todos: Array<todo> = [];
 	async function clickToDo(todoItem: todo, event: MouseEvent) {
 		todoItem.completed = !todoItem.completed;
 
@@ -22,7 +20,7 @@
         "content-type": "application/json",
       },
     });
-		todos = await getToDo(event.target.closest('.todoItem').getAttribute('data-categoryid'), apiBaseUrl, userId)
+		await getToDo(event.target.closest('.todoItem').getAttribute('data-categoryid'), userId)
 		successToast(todoItem)
   }
 	async function successToast(todoItem: todo) {

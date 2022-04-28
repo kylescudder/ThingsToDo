@@ -1,12 +1,9 @@
 <script lang="ts">
-	import type { todo } from 'src/interfaces';
 	import { addCategory } from '../categories'
 	
 	export let id: string
 	export let title: string
-	export let apiBaseUrl: string
 	export let userId: number
-	export let todos: Array<todo> = []
 	export let categoryText: string
 	let newCategory: string
 
@@ -16,7 +13,7 @@
 			btnCloseModal.click()
 		}
 		categoryText = newCategory
-	 	todos = await addCategory(newCategory, apiBaseUrl, userId)
+	 	await addCategory(newCategory, userId)
 	}
 </script>
 <!-- Modal -->
@@ -35,7 +32,7 @@
 				</button>
       </div>
       <div class="modal-body relative p-4">
-	      <input type="text" bind:value={newCategory} class="form-control"
+	      <input type="text" bind:value={newCategory} class="form-control w-full"
 					id="exampleFormControlInput1" placeholder="Example label" />
       </div>
       <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 rounded-b-md">
