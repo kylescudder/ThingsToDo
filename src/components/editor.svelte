@@ -2,7 +2,7 @@
 	import DarkModeToggle from './DarkModeToggle.svelte'
 	import ToDo from './ToDo.svelte'
 	import type { todo } from '../interfaces'
-	import { todoList, categoryTEXT } from '../lib/stores'
+	import { todoList, categoryTEXT } from '$lib/stores'
 	import AddToDo from './AddToDo.svelte'
 
 	export let userId: number

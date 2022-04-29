@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { addToDo, getToDo } from '../todo'
 	import { categoriesPopulate } from '../categories'
-	import { categoryID } from '../lib/stores'
+	import { categoryID } from '$lib/stores'
 
 	export let todoText: string
 	export let todoDate: Date

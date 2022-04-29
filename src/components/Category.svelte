@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getToDo } from '../todo';
   import type { category } from '../interfaces'
-	import { categoryTEXT } from '../lib/stores'
+	import { categoryTEXT } from '$lib/stores'
 
 	export let category: category;
 	export let userId: number
