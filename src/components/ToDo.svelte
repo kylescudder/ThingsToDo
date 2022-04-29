@@ -9,7 +9,8 @@
 	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60 todoItem my-8"
 	on:click={(event) => clickToDo(todoItem, event, userId)} 
 		data-id={todoItem.id} data-categoryid={todoItem.categoryId}>
-	<div class="grid grid-cols-6">
+	<div class="grid grid-cols-6"
+		class:completed={todoItem.completed} class:uncompleted={!todoItem.completed}>
 		<div class="p-4 float-left col-span-4 my-auto">
 			<span class="text-2xl font-medium float-left text-white inline-block align-middle">{todoItem.text}</span>
 		</div>
