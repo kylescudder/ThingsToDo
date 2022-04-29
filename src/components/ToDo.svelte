@@ -10,7 +10,7 @@
 	on:click={(event) => clickToDo(todoItem, event, userId)} 
 		data-id={todoItem.id} data-categoryid={todoItem.categoryId}>
 	<div class="grid grid-cols-6"
-		class:completed={todoItem.completed} class:uncompleted={!todoItem.completed}>
+		class:completed={todoItem.completed}>
 		<div class="p-4 float-left col-span-4 my-auto">
 			<span class="text-2xl font-medium float-left text-white inline-block align-middle">{todoItem.text}</span>
 		</div>

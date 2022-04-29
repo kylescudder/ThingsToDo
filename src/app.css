@@ -429,25 +429,6 @@ button.btnAdd {
 .uncompleted {
 	position: relative;
 }
-.uncompleted::after {
-	content: ' ';
-	position: absolute;
-	top: 50%;
-	height: 3px;
-	-webkit-animation-name: removeStrike;
-	animation-name: removeStrike;
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-	-webkit-animation-iteration-count: 1;
-	animation-iteration-count: 1;
-	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
-  background-color: rgba(255, 255, 255, 1);
-  max-width: 85%;
-  left: .75rem
-}
 .completed::after {
 	content: ' ';
 	position: absolute;
