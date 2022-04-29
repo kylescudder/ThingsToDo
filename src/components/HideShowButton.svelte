@@ -1,13 +1,18 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+	import { hideEmptyCategories, hideShowButtonTooltip } from '../categories'
 	import { hideEmpty } from '$lib/stores'
 
   onMount(() => {
     hideShowButtonTooltip()
   })
 
+	let payloadHideEmpty: boolean
+	hideEmpty.subscribe(value => {
+		payloadHideEmpty = value;
+	});
 </script>
-{#if hideEmpty !== false}
+{#if payloadHideEmpty !== false}
 	<i class="fas fa-eye-slash hiddenCategory hideShowCategories text-white" 
 		on:click={(event) => hideEmptyCategories(event)}></i>
 {:else}
