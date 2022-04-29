@@ -1,60 +1,13 @@
 <script lang="ts">
-	import Notify from 'simple-notify'
-	import 'simple-notify/dist/simple-notify.min.css'
-	
 	import type { todo } from '../interfaces'
-	import { getToDo } from '../todo'
+	import { clickToDo } from '../todo'
 
 	export let userId: number
 	export let todoItem: todo
-	async function clickToDo(todoItem: todo, event: MouseEvent) {
-		todoItem.completed = !todoItem.completed;
-
-		const response = await fetch(`${apiBaseUrl}/todo`, {
-			method: "PUT",
-      body: JSON.stringify({
-				githubId: userId,
-        id: todoItem.id
-      }),
-			headers: {
-        "content-type": "application/json",
-      },
-    });
-		await getToDo(event.target.closest('.todoItem').getAttribute('data-categoryid'), userId)
-		successToast(todoItem)
-  }
-	async function successToast(todoItem: todo) {
-		let title: string
-		let text: string
-		if (todoItem.completed) {
-			title = 'Completed! 🥳🎉'
-			text = `Complete ${todoItem.text}`
-		} else {
-			title = 'Uncompleted! 😥🤦‍♀️'
-			text = `Uncomplete ${todoItem.text}`
-		}
-		new Notify ({
-			status: 'success',
-			title: title,
-			text: text,
-			effect: 'slide',
-			speed: 300,
-			customClass: '',
-			customIcon: '',
-			showIcon: true,
-			showCloseButton: true,
-			autoclose: true,
-			autotimeout: 3000,
-			gap: 20,
-			distance: 20,
-			type: 1,
-			position: 'right bottom'
-		})
-	}
 </script>
 <div class="bg-blue-500 h-full dark:bg-gray-700 cursor-pointer
 	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60 todoItem my-8"
-	on:click={(event) => clickToDo(todoItem, event)} 
+	on:click={(event) => clickToDo(todoItem, event, userId)} 
 		data-id={todoItem.id} data-categoryid={todoItem.categoryId}>
 	<div class="grid grid-cols-6">
 		<div class="p-4 float-left col-span-4 my-auto">

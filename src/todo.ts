@@ -1,6 +1,10 @@
 import dayjs from 'dayjs'
+import Notify from 'simple-notify'
+import 'simple-notify/dist/simple-notify.min.css'
+
 import type { todo } from './interfaces';
-import { todoList, categoryID, apiBaseUrl, categoryTEXT } from './lib/stores';
+import { todoList, categoryID, apiBaseUrl } from '$lib/stores';
+
 export let todos: Array<todo> = [];
 let payloadApiBaseUrl = ''
 apiBaseUrl.subscribe(value => {
@@ -47,3 +51,47 @@ export async function addToDo(categoryId: number, todoText: string, todoDate: Da
 		},
 	});
 }
+export async function clickToDo(todoItem: todo, event: MouseEvent, userId: number) {
+		todoItem.completed = !todoItem.completed;
+
+		const response = await fetch(`${payloadApiBaseUrl}/todo`, {
+			method: "PUT",
+      body: JSON.stringify({
+				githubId: userId,
+        id: todoItem.id
+      }),
+			headers: {
+        "content-type": "application/json",
+      },
+		});
+		await getToDo(event.target.closest('.todoItem').getAttribute('data-categoryid'), userId)
+		successToast(todoItem)
+  }
+	async function successToast(todoItem: todo) {
+		let title: string
+		let text: string
+		if (todoItem.completed) {
+			title = 'Completed! 🥳🎉'
+			text = `Complete ${todoItem.text}`
+		} else {
+			title = 'Uncompleted! 😥🤦‍♀️'
+			text = `Uncomplete ${todoItem.text}`
+		}
+		new Notify ({
+			status: 'success',
+			title: title,
+			text: text,
+			effect: 'slide',
+			speed: 300,
+			customClass: '',
+			customIcon: '',
+			showIcon: true,
+			showCloseButton: true,
+			autoclose: true,
+			autotimeout: 3000,
+			gap: 20,
+			distance: 20,
+			type: 1,
+			position: 'right bottom'
+		})
+	}
