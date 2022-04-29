@@ -8,11 +8,13 @@
 	export let userId: number
 
 	const todoAdd =  async (categoryId: number, text: string, date: Date) => {
-		await addToDo(categoryId, text, date, userId)
-		await categoriesPopulate(userId)
-		await getToDo(categoryId, userId)
-		todoText = ''
-		todoDate = new Date(0)
+		if (todoText !== '') {
+			await addToDo(categoryId, text, date, userId)
+			await categoriesPopulate(userId)
+			await getToDo(categoryId, userId)
+			todoText = ''
+			todoDate = new Date(0)
+		}
 	}
 
 	let payloadCategoryId: number
