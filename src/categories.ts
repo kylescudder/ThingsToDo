@@ -46,4 +46,5 @@ export async function addCategory(newCategory: string, userId: number) {
 	} else {
 		alert('Failed to add category')
 	}
+	modal.set(null)
 }

@@ -7,3 +7,4 @@ export const categoryID = writable(0)
 export const categoryTEXT = writable('')
 export const apiBaseUrl = readable(import.meta.env.VITE_API_URL);
 export const userId = writable(0);
+export const modal = writable(null);

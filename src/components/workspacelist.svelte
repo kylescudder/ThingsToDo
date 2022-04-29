@@ -1,23 +1,26 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import 'tw-elements';
+  import Modal, { bind } from 'svelte-simple-modal';
   
   import LogoutButton from './LogoutButton.svelte'
   import HideShowButton from './HideShowButton.svelte'
 	import Loading from './Loading.svelte'
 	import Category from './Category.svelte'
-	import Modal from './Modal.svelte'
+  import Popup from './Popup.svelte';
 	import checklistLogo from '../images/checklist.png'
   import type { category } from '../interfaces'
   import { categoriesPopulate } from '../categories'
-  import { categoryList } from '../lib/stores'
-
+  import { categoryList, modal } from '$lib/stores'
+  
   export let userId: number
   export let isLoading = false
-
+  
 	onMount(() => {
     loadContent()
   })
+
+  const showModal = () => modal.set(bind(Popup, { title: 'Add category', userId: userId }));
+
   async function loadContent() {
     isLoading = true
     await categoriesPopulate(userId)
@@ -44,8 +47,17 @@
           {#if payload.length !== 0}
             <HideShowButton/>
           {/if}
-          <i class="fas fa-plus cursor-pointer" data-bs-toggle="modal" data-bs-target='#addCategory' />
-          <Modal id='addCategory' title='Add Category' {userId} />
+          <Modal
+            show={$modal}
+            unstyled={true}
+            classBg="fixed top-0 left-0 w-screen h-screen flex flex-col justify-center bg-gray-500/[.9] z-10"
+            classWindowWrap="m-2"
+            classWindow="w-2/5 my-2 mx-auto rounded-xl shadow-md"
+            classContent="relative p-2 bg-white dark:bg-gray-700 rounded-xl"
+            closeButton={false}
+          >
+            <i on:click={showModal} class="fas fa-plus cursor-pointer" />
+          </Modal>
         </p>
         {#if payload.length !== 0}
           {#each payload as category (category.id)}
