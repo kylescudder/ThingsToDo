@@ -18,9 +18,6 @@ const config = {
 		methodOverride: {
 			allowed: ['PATCH', 'DELETE']
 		}
-	},
-	compilerOptions: {
-		types: ['svelte']
 	}
 };
 
