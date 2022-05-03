@@ -1,20 +1,21 @@
 <script lang="ts">
-	import WorkspaceList from '../components/workspacelist.svelte';
+	import WorkspaceList from './Workspacelist.svelte'
 	import Editor from './Editor.svelte';
-	import Loading from './Loading.svelte'
-	import type { category, todo } from '../interfaces'
+	import Loading from './Loading.svelte';
+	import type { category, todo } from '../interfaces';
 
-	export let isLoading = false
+	export let isLoading = false;
 	export let userId: number;
-	isLoading = true
+	isLoading = true;
 	setTimeout(() => {
-		isLoading = false
+		isLoading = false;
 	}, 300);
 	export let todos: Array<todo> = [];
 	export let categories: Array<category> = [];
 </script>
+
 {#if isLoading}
- <Loading/>
+	<Loading />
 {:else}
 	<div class="grid grid-cols-12 h-full w-full">
 		<WorkspaceList {userId} {categories} />

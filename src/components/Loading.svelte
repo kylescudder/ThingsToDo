@@ -1,3 +1,3 @@
-		<div class="loader-container">
-			<div class="loader"></div>
-		</div>
+<div class="loader-container">
+	<div class="loader" />
+</div>

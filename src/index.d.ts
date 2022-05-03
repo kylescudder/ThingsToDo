@@ -1,2 +1,2 @@
-declare module '*.png'
-declare module 'dayjs'
+declare module '*.png';
+declare module 'dayjs';

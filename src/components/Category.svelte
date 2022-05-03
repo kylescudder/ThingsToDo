@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { getToDo } from '../todo';
-  import type { category } from '../interfaces'
-	import { categoryTEXT } from '$lib/stores'
+	import { getToDo } from '../todo';
+	import type { category } from '../interfaces';
+	import { categoryTEXT } from '$lib/stores';
 
-	export let category: category;
-	export let userId: number
+	export let categoryItem: category;
+	export let userId: number;
 
   async function fetchToDo(event: MouseEvent) {
 		categoryTEXT.set(event.target!.innerHTML)
@@ -12,10 +12,11 @@
   }
 </script>
 <h2
- 	on:click={(event) => fetchToDo(event)}
+	on:click={(event) => fetchToDo(event)}
 	class="categoryHeader m-2 w-auto text-white cursor-pointer hover:text-gray-400"
-	class:hidden={category.toDoCount === 0}
-	data-count={category.toDoCount}
-	data-id={category.id}>
-	{category.text}
+	class:hidden={categoryItem.toDoCount === 0}
+	data-count={categoryItem.toDoCount}
+	data-id={categoryItem.id}
+>
+	{categoryItem.text}
 </h2>
