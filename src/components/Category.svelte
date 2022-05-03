@@ -6,11 +6,18 @@
 	export let categoryItem: category;
 	export let userId: number;
 
-  async function fetchToDo(event: MouseEvent) {
-		categoryTEXT.set(event.target!.innerHTML)
-		await getToDo(event.target.getAttribute('data-id'), userId)
-  }
+	async function fetchToDo(event: MouseEvent) {
+		const target = event.target as HTMLHeadElement;
+		if (target !== null) {
+			categoryTEXT.set(target.innerHTML);
+			const Id = target.getAttribute('data-categoryid');
+			if (Id !== null) {
+				await getToDo(parseInt(Id), userId);
+			}
+		}
+	}
 </script>
+
 <h2
 	on:click={(event) => fetchToDo(event)}
 	class="categoryHeader m-2 w-auto text-white cursor-pointer hover:text-gray-400"
