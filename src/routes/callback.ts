@@ -1,13 +1,14 @@
+import type { RequestHandler } from '@sveltejs/kit';
 const clientId = import.meta.env.VITE_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
 
-export async function get(request) {
-	const code = request.url.searchParams.get('code')
+export async function get(request: RequestHandler) {
+	const code = request.url.searchParams.get('code');
 
-	const token = await getToken(code)
-	const user = await getUser(token)
-	request.locals.userName = user.name
-	request.locals.userId = user.id
+	const token = await getToken(code);
+	const user = await getUser(token);
+	request.locals.userName = user.name;
+	request.locals.userId = user.id;
 	return {
 		status: 302,
 		headers: {
@@ -19,7 +20,7 @@ export async function get(request) {
 		}
 	};
 }
-function getToken(code) {
+async function getToken(code: string) {
 	const url = 'https:github.com/login/oauth/access_token';
 	return fetch(url, {
 		method: 'POST',
@@ -36,7 +37,7 @@ function getToken(code) {
 		.then((response) => response.json())
 		.then((data) => data.access_token);
 }
-function getUser(token) {
+async function getUser(token: string) {
 	const url = 'https://api.github.com/user';
 	return fetch(url, {
 		method: 'POST',
@@ -44,6 +45,5 @@ function getUser(token) {
 			Accept: 'application/json',
 			Authorization: `Bearer ${token}`
 		}
-	})
-		.then((response) => response.json())
+	}).then((response) => response.json());
 }

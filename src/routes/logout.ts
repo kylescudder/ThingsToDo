@@ -1,6 +1,8 @@
-export async function get(request) {
+import type { RequestHandler } from '@sveltejs/kit';
+
+export async function get(request: RequestHandler) {
 	request.locals.userName = { userName: null };
-	request.locals.userId = { userId: null }
+	request.locals.userId = { userId: null };
 
 	return {
 		status: 302,
