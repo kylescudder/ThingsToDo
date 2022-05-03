@@ -7,7 +7,7 @@
 	import Loading from './Loading.svelte';
 	import Category from './Category.svelte';
 	import Popup from './Popup.svelte';
-	import checklistLogo from '../images/checklist.png';
+	import checklistLogo from '/static/checklist.png';
 	import type { category } from '../interfaces';
 	import { categoriesPopulate } from '../categories';
 	import { categoryList, modal } from '$lib/stores';
