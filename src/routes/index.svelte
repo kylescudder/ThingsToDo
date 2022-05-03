@@ -11,7 +11,7 @@
 <script lang="ts">
 	export const prerender = true;
 	import Workspace from '../components/Workspace.svelte'
-	let checklistLogo = 'src/images/checklist.png';
+	let checklistLogo = '../../src/images/checklist.png';
 	export let userId: number;
 </script>
 
