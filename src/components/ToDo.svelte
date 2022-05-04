@@ -25,9 +25,9 @@
 		<div class="p-4 float-left col-span-1 my-auto">
 			<span class="col-span-1">
 				{#if todoItem.completed}
-					<i class="fas fa-circle-check text-5xl font-medium float-right text-white" />
+					<i class="fas fa-circle-check text-5xl font-medium float-right text-white"></i>
 				{:else}
-					<i class="far fa-circle-check text-5xl font-medium float-right text-white" />
+					<i class="far fa-circle-check text-5xl font-medium float-right text-white"></i>
 				{/if}
 			</span>
 		</div>
