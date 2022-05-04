@@ -10,7 +10,7 @@
 		const target = event.target as HTMLHeadElement;
 		if (target !== null) {
 			categoryTEXT.set(target.innerHTML);
-			const Id = target.getAttribute('data-categoryid');
+			const Id = target.getAttribute('data-id');
 			if (Id !== null) {
 				await getToDo(parseInt(Id), userId);
 			}
