@@ -35,15 +35,16 @@ async function getToken(code: string) {
 		})
 	})
 		.then((response) => response.json())
-		.then((data) => data.access_token);
+		.then((data) => data.access_token)
 }
 async function getUser(token: string) {
 	const url = 'https://api.github.com/user';
-	return fetch(url, {
-		method: 'POST',
+	const payload = await fetch(url, {
+		method: 'GET',
 		headers: {
 			Accept: 'application/json',
 			Authorization: `Bearer ${token}`
 		}
-	}).then((response) => response.json());
+	})
+	return payload.json()
 }
