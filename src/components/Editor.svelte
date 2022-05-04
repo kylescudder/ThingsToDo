@@ -22,7 +22,7 @@
 <div class="w-full h-12 mt-2">
 	<DarkModeToggle />
 </div>
-<div class="relative flex min-h-screen flex-col mt-20">
+<div class="relative flex flex-col pt-20">
 	<div class="mx-auto w-11/12">
 		{#if payloadCategoryText !== ''}
 			<div class="text-2xl dark:text-white text-blue-700 font-bold">

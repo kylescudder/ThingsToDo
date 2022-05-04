@@ -19,7 +19,7 @@
 {:else}
 	<div class="grid grid-cols-12 h-full w-full">
 		<WorkspaceList {userId} {categories} />
-		<div class="col-span-10">
+		<div class="col-span-10 min-h-screen overflow-y-scroll">
 			<Editor {userId} {todos} />
 		</div>
 	</div>
