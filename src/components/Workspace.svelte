@@ -19,7 +19,7 @@
 {:else}
 	<div class="grid grid-cols-12 h-full w-full">
 		<WorkspaceList {userId} {categories} />
-		<div class="col-span-10 bg-slate-100 dark:bg-slate-900">
+		<div class="col-span-10 ">bg-slate-100 dark:bg-slate-900
 			<Editor {userId} {todos} />
 		</div>
 	</div>
