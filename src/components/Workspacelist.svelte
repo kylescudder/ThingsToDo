@@ -7,7 +7,6 @@
 	import Loading from './Loading.svelte';
 	import Category from './Category.svelte';
 	import Popup from './Popup.svelte';
-	import checklistLogo from '/static/checklist.png';
 	import type { category } from '../interfaces';
 	import { categoriesPopulate } from '../categories';
 	import { categoryList, modal } from '$lib/stores';
@@ -39,7 +38,7 @@
 			<Loading />
 		{:else}
 			<div class="grid grid-cols-4 mt-4">
-				<img class="h-8 w-auto col-span-1" src={checklistLogo} alt="Checklist Logo" />
+				<img class="h-8 w-auto col-span-1" src='checklist.png' alt="Checklist Logo" />
 				<p class="text-lg text-white text-center col-span-3">ThingsToDo</p>
 			</div>
 			<section class="mt-4">

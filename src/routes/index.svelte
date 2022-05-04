@@ -11,7 +11,6 @@
 <script lang="ts">
 	export const prerender = true;
 	import Workspace from '../components/Workspace.svelte'
-	let checklistLogo = '/static/checklist.png';
 	export let userId: number;
 </script>
 
@@ -22,9 +21,9 @@
 	<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-md w-full space-y-8 p-8 bg-gray-300 rounded-lg">
 			<div>
-				<img class="mx-auto h-12 w-auto" src={checklistLogo} alt="Checklist Logo" />
 				<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">ThingsToDo</h2>
 				<p class="mt-2 text-center text-sm text-gray-600">
+				<img class="mx-auto h-12 w-auto" src='checklist.png' alt="Checklist Logo" />
 					All your To Dos, organised, simplified, accessible...
 				</p>
 			</div>
