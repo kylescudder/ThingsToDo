@@ -3,8 +3,8 @@
 	import { categoriesPopulate } from '../categories';
 	import { categoryID } from '$lib/stores';
 
-	export let todoText: string;
-	export let todoDate: Date;
+	let todoText: string;
+	let todoDate: Date;
 	export let userId: number;
 
 	const todoAdd = async (categoryId: number, text: string, date: Date) => {
