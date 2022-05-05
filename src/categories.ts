@@ -15,11 +15,9 @@ export let todos: Array<todo> = [];
 export async function categoriesPopulate(userId: number) {
 	const categoriesResponse = await fetch(`${payloadApiBaseUrl}/categories`, {
 		method: 'POST',
-		body: JSON.stringify({
-			githubId: userId
-		}),
 		headers: {
-			'content-type': 'application/json'
+			'content-type': 'application/json',
+			'githubId': userId,
 		}
 	});
 	const categoriesPayload = await categoriesResponse.json();

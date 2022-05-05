@@ -14,13 +14,11 @@ apiBaseUrl.subscribe((value) => {
 export async function getToDo(categoryId: number, userId: number) {
 	todos = [];
 	const response = await fetch(`${payloadApiBaseUrl}/todo`, {
-		method: 'POST',
-		body: JSON.stringify({
-			githubId: userId,
-			categoryId: categoryId
-		}),
+		method: 'GET',
 		headers: {
-			'content-type': 'application/json'
+			'content-type': 'application/json',
+			'githubId': userId,
+			'categoryId': categoryId
 		}
 	});
 	if (response.status === 200) {
@@ -44,13 +42,13 @@ export async function addToDo(
 	await fetch(`${payloadApiBaseUrl}/addtodo`, {
 		method: 'POST',
 		body: JSON.stringify({
-			githubId: userId,
 			text: todoText,
 			targetDate: todoDate,
 			categoryId: categoryId
 		}),
 		headers: {
-			'content-type': 'application/json'
+			'content-type': 'application/json',
+			'githubId': userId,
 		}
 	});
 }
@@ -60,11 +58,11 @@ export async function clickToDo(todoItem: todo, event: MouseEvent, userId: numbe
 	await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: 'PUT',
 		body: JSON.stringify({
-			githubId: userId,
 			id: todoItem.id
 		}),
 		headers: {
-			'content-type': 'application/json'
+			'content-type': 'application/json',
+			'githubId': userId,
 		}
 	});
 	const target = event.target as HTMLElement;
