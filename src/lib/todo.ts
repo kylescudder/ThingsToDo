@@ -39,7 +39,8 @@ export async function addToDo(
 	todoDate: Date,
 	userId: number
 ) {
-	await fetch(`${payloadApiBaseUrl}/addtodo`, {
+	console.log('addToDo')
+	await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: 'POST',
 		body: JSON.stringify({
 			text: todoText,
