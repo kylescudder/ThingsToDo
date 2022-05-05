@@ -1,6 +1,11 @@
 export const darkModeSet = () => {
-	const themeToggleBtn = document.querySelector('.toggle--label') as HTMLLabelElement;
-	const themeToggleCheckbox = document.querySelector('.toggle--checkbox') as HTMLInputElement;
+	// Change the icons inside the button based on previous settings
+	if (localStorage.getItem('color-theme') === 'dark') {
+		setDarkTheme();
+	}
+}
+const toggleDarkMode = () => {
+		const themeToggleBtn = document.querySelector('.toggle--label') as HTMLLabelElement;
 
 	if (themeToggleBtn !== null) {
 		themeToggleBtn.addEventListener('click', function () {
@@ -26,17 +31,19 @@ export const darkModeSet = () => {
 			}
 		});
 	}
-	// Change the icons inside the button based on previous settings
+}
+export const setToggle = () => {
+	toggleDarkMode()
+	const themeToggleCheckbox = document.querySelector('.toggle--checkbox') as HTMLInputElement;
 	if (localStorage.getItem('color-theme') === 'dark') {
-		setDarkTheme();
 		themeToggleCheckbox.checked = true;
 	}
-	function setLightTheme() {
-		document.documentElement.classList.remove('dark');
-		localStorage.setItem('color-theme', 'light');
-	}
-	function setDarkTheme() {
-		document.documentElement.classList.add('dark');
-		localStorage.setItem('color-theme', 'dark');
-	}
+}
+const setLightTheme = () => {
+	document.documentElement.classList.remove('dark');
+	localStorage.setItem('color-theme', 'light');
+}
+const setDarkTheme = () => {
+	document.documentElement.classList.add('dark');
+	localStorage.setItem('color-theme', 'dark');
 }
