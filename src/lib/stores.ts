@@ -1,5 +1,5 @@
 import { writable, readable } from 'svelte/store';
-import type { category, todo } from '../interfaces';
+import type { category, todo } from './interfaces';
 
 export const todoList = writable(new Array<todo>());
 export const categoryList = writable(new Array<category>());

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { getToDo } from '../todo';
-	import type { category } from '../interfaces';
+	import { getToDo } from '../lib/todo';
+	import type { category } from '../lib/interfaces';
 	import { categoryTEXT } from '$lib/stores';
 
 	export let categoryItem: category;

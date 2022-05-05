@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { hideEmptyCategories, hideShowButtonTooltip } from '../categories';
+	import { hideEmptyCategories, hideShowButtonTooltip } from '../lib/categories';
 	import { hideEmpty } from '$lib/stores';
 
 	onMount(() => {

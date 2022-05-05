@@ -1,7 +1,7 @@
 <script type="ts">
 	import DarkModeToggle from './DarkModeToggle.svelte';
 	import ToDo from './ToDo.svelte';
-	import type { todo } from '../interfaces';
+	import type { todo } from '../lib/interfaces';
 	import { todoList, categoryTEXT } from '$lib/stores';
 	import AddToDo from './AddToDo.svelte';
 

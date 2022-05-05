@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { todo } from '../interfaces';
-	import { clickToDo } from '../todo';
+	import type { todo } from '../lib/interfaces';
+	import { clickToDo } from '../lib/todo';
 
 	export let userId: number;
 	export let todoItem: todo;

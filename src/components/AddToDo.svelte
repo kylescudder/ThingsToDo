@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { addToDo, getToDo } from '../todo';
-	import { categoriesPopulate } from '../categories';
+	import { addToDo, getToDo } from '../lib/todo';
+	import { categoriesPopulate } from '../lib/categories';
 	import { categoryID } from '$lib/stores';
 
 	let todoText: string;

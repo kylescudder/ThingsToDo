@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { darkModeSet } from '../darkMode'
+	import { darkModeSet } from '../lib/darkMode'
 </script>
 
 <input type="checkbox" id="toggle" class="toggle--checkbox" />

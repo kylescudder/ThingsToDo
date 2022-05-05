@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { addCategory } from '../categories';
+	import { addCategory } from '../lib/categories';
 	import { modal } from '$lib/stores';
 
 	export let title: string;

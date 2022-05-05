@@ -12,7 +12,7 @@
 	export const prerender = true;
 	import Workspace from '../components/Workspace.svelte'
 	import { onMount } from 'svelte'
-	import { darkModeSet } from '../darkMode'
+	import { darkModeSet } from '../lib/darkMode'
 	export let userId: number;
 
 	onMount(() => {

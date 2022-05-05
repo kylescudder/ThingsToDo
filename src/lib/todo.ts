@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import Notify from 'simple-notify';
 import 'simple-notify/dist/simple-notify.min.css';
 
-import type { todo } from './interfaces';
+import type { todo } from '../interfacess';
 import { todoList, categoryID, apiBaseUrl } from '$lib/stores';
 
 export let todos: Array<todo> = [];

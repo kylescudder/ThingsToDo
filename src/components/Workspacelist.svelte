@@ -7,8 +7,8 @@
 	import Loading from './Loading.svelte';
 	import Category from './Category.svelte';
 	import Popup from './Popup.svelte';
-	import type { category } from '../interfaces';
-	import { categoriesPopulate } from '../categories';
+	import type { category } from '../lib/interfaces';
+	import { categoriesPopulate } from '../lib/categories';
 	import { categoryList, modal } from '$lib/stores';
 
 	export let userId: number;
