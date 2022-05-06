@@ -3,12 +3,10 @@
 	import { modal } from '$lib/stores';
 
 	export let title: string;
-	export let newCategory: string;
-	export let categoryText: string;
+	let newCategory: string;
 	export let userId: number;
 
 	async function categoryAdd() {
-		categoryText = newCategory;
 		await addCategory(newCategory, userId);
 	}
 </script>
