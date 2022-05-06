@@ -29,10 +29,10 @@ export async function addCategory(newCategory: string, userId: number) {
 		method: 'POST',
 		body: JSON.stringify({
 			categoryText: newCategory,
-			githubId: userId
 		}),
 		headers: {
-			'content-type': 'application/json'
+			'content-type': 'application/json',
+			'githubId': userId,
 		}
 	});
 	let categoryId: number;
