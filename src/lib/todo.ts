@@ -11,7 +11,7 @@ apiBaseUrl.subscribe((value) => {
 	payloadApiBaseUrl = value;
 });
 
-export async function getToDo(categoryId: number, userId: number) {
+export const getToDo = async (categoryId: number, userId: number) => {
 	todos = [];
 	const response = await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: 'GET',
@@ -33,12 +33,7 @@ export async function getToDo(categoryId: number, userId: number) {
 	categoryID.set(categoryId);
 	todoList.set(todos);
 }
-export async function addToDo(
-	categoryId: number,
-	todoText: string,
-	todoDate: Date,
-	userId: number
-) {
+export const addToDo = async (categoryId: number, todoText: string, todoDate: Date, userId: number) => {
 	console.log('addToDo')
 	await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: 'POST',
@@ -53,7 +48,7 @@ export async function addToDo(
 		}
 	});
 }
-export async function clickToDo(todoItem: todo, event: MouseEvent, userId: number) {
+export const clickToDo = async (todoItem: todo, event: MouseEvent, userId: number) => {
 	todoItem.completed = !todoItem.completed;
 
 	await fetch(`${payloadApiBaseUrl}/todo`, {
@@ -78,7 +73,7 @@ export async function clickToDo(todoItem: todo, event: MouseEvent, userId: numbe
 		}
 	}
 }
-async function successToast(todoItem: todo) {
+const successToast = async (todoItem: todo) => {
 	let title: string;
 	let text: string;
 	if (todoItem.completed) {

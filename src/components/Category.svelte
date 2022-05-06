@@ -6,7 +6,7 @@
 	export let categoryItem: category;
 	export let userId: number;
 
-	async function fetchToDo(event: MouseEvent) {
+	const fetchToDo = async (event: MouseEvent) => {
 		const target = event.target as HTMLHeadElement;
 		if (target !== null) {
 			categoryTEXT.set(target.innerHTML);

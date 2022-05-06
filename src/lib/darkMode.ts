@@ -8,7 +8,7 @@ const toggleDarkMode = () => {
 		const themeToggleBtn = document.querySelector('.toggle--label') as HTMLLabelElement;
 
 	if (themeToggleBtn !== null) {
-		themeToggleBtn.addEventListener('click', function () {
+		themeToggleBtn.addEventListener('click',() => {
 			// if set via local storage previously
 			if (localStorage.getItem('color-theme')) {
 				if (

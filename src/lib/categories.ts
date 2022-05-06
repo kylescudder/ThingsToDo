@@ -12,7 +12,7 @@ apiBaseUrl.subscribe((value) => {
 });
 export let todos: Array<todo> = [];
 
-export async function categoriesPopulate(userId: number) {
+export const categoriesPopulate = async (userId: number) => {
 	const categoriesResponse = await fetch(`${payloadApiBaseUrl}/categories`, {
 		method: 'POST',
 		headers: {
@@ -23,7 +23,7 @@ export async function categoriesPopulate(userId: number) {
 	const categoriesPayload = await categoriesResponse.json();
 	categoryList.set(categoriesPayload.payload);
 }
-export async function addCategory(newCategory: string, userId: number) {
+export const addCategory = async (newCategory: string, userId: number) => {
 	todos = [];
 	const response = await fetch(`${payloadApiBaseUrl}/category`, {
 		method: 'POST',
@@ -49,7 +49,7 @@ export async function addCategory(newCategory: string, userId: number) {
 	}
 	modal.set(null);
 }
-export function hideShowButtonTooltip() {
+export const hideShowButtonTooltip = () => {
 	tippy('.hideShowCategories', {
 		content: 'Hide or Show categories with no To Dos currently in it.',
 		placement: 'right',
@@ -61,7 +61,7 @@ export function hideShowButtonTooltip() {
 	});
 }
 
-export function hideEmptyCategories(e: MouseEvent) {
+export const hideEmptyCategories = (e: MouseEvent) => {
 	const target = e.target as HTMLElement;
 	if (target !== null) {
 		const categoryHeader = document.querySelectorAll('.categoryHeader');
@@ -74,7 +74,7 @@ export function hideEmptyCategories(e: MouseEvent) {
 		}
 	}
 }
-function showHide(categoryHeader: NodeListOf<Element>, action: string) {
+const showHide = (categoryHeader: NodeListOf<Element>, action: string) => {
 	if (categoryHeader != null) {
 		categoryHeader.forEach((element) => {
 			if (action === 'remove') {

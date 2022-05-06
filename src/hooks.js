@@ -1,6 +1,6 @@
 import cookie from 'cookie';
 
-export async function handle({ event, resolve }) {
+export const handle = async ({ event, resolve }) => {
 	const cookies = cookie.parse(event.request.headers.get('cookie') || '');
 	event.locals.userName = cookies.userName;
 	event.locals.userId = cookies.userId;
@@ -10,7 +10,7 @@ export async function handle({ event, resolve }) {
 	return response;
 }
 
-export async function getSession(request) {
+export const getSession = async (request) => {
 	return {
 		userName: request.locals.userName,
 		userId: request.locals.userId

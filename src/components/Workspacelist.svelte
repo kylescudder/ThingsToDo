@@ -20,7 +20,7 @@
 
 	const showModal = () => modal.set(bind(Popup, { title: 'Add category', userId: userId }));
 
-	async function loadContent() {
+	const loadContent = async () => {
 		isLoading = true;
 		await categoriesPopulate(userId);
 		isLoading = false;

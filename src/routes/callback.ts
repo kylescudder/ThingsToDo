@@ -2,7 +2,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 const clientId = import.meta.env.VITE_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
 
-export async function get(request: RequestHandler) {
+export const get = async (request: RequestHandler) => {
 	const code = request.url.searchParams.get('code');
 
 	const token = await getToken(code);
@@ -20,7 +20,7 @@ export async function get(request: RequestHandler) {
 		}
 	};
 }
-async function getToken(code: string) {
+const getToken = async (code: string) => {
 	const url = 'https:github.com/login/oauth/access_token';
 	return fetch(url, {
 		method: 'POST',
@@ -37,7 +37,7 @@ async function getToken(code: string) {
 		.then((response) => response.json())
 		.then((data) => data.access_token)
 }
-async function getUser(token: string) {
+const getUser = async (token: string) => {
 	const url = 'https://api.github.com/user';
 	const payload = await fetch(url, {
 		method: 'GET',

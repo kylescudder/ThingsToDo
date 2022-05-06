@@ -6,7 +6,7 @@
 	let newCategory: string;
 	export let userId: number;
 
-	async function categoryAdd() {
+	const categoryAdd = async () => {
 		await addCategory(newCategory, userId);
 	}
 </script>

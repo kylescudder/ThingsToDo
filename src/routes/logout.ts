@@ -1,6 +1,6 @@
 import type { RequestHandler } from '@sveltejs/kit';
 
-export async function get(request: RequestHandler) {
+export const get = async (request: RequestHandler) => {
 	request.locals.userName = { userName: null };
 	request.locals.userId = { userId: null };
 

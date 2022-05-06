@@ -1,5 +1,5 @@
 <script context="module">
-	export async function load({ session }) {
+	export const load = async ({ session }) => {
 		return {
 			props: {
 				userId: session.userId
