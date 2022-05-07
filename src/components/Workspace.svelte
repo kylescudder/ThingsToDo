@@ -14,10 +14,12 @@
 {#if isLoading}
 	<Loading />
 {:else}
-	<div class="grid grid-cols-12 h-full w-full">
+	<div class="relative min-h-screen md:flex" data-dev-hint="container">		
 		<WorkspaceList {userId} />
-		<div class="col-span-10 min-h-screen overflow-y-scroll">
-			<Editor {userId} />
-		</div>
+		<main id="content" class="flex-1 p-6 lg:px-8">
+			<div class="mx-auto">
+					<Editor {userId} />
+			</div>
+		</main>
 	</div>
 {/if}
