@@ -27,18 +27,18 @@
 	<input
 		type="text"
 		bind:value={todoText}
-		class="ml-0 form-control col-span-5"
+		class="ml-0 form-control col-span-11 md:col-span-5"
 		id="todoText"
 		placeholder="New To Do"
 	/>
 	<input
 		type="datetime-local"
 		bind:value={todoDate}
-		class="form-control col-span-5"
+		class="form-control col-span-11 md:col-span-5"
 		id="todoText"
 	/>
 	<button
-		class="col-start-11 col-span-1 btnAdd h-3/6 my-auto"
+		class="md:col-start-11 col-span-11 md:col-span-1 btnAdd md:h-3/6 my-auto"
 		on:click={() => todoAdd(payloadCategoryId, todoText, todoDate)}>Add</button
 	>
 </div>

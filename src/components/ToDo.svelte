@@ -13,21 +13,21 @@
 	data-id={todoItem.id}
 	data-categoryid={todoItem.categoryId}
 >
-	<div class="grid grid-cols-6" class:completed={todoItem.completed}>
-		<div class="p-4 float-left col-span-4 my-auto">
-			<span class="text-2xl font-medium float-left text-white inline-block align-middle"
+	<div class="grid grid-cols-7" class:completed={todoItem.completed}>
+		<div class="p-4 float-left col-span-3 md:col-span-5 my-auto">
+			<span class="md:text-2xl text-sm font-medium float-left text-white inline-block align-middle"
 				>{todoItem.text}</span
 			>
 		</div>
-		<div class="p-4 float-left col-span-1 my-auto">
-			<h1 class="text-2xl font-medium float-left text-white">{todoItem.targetDateString}</h1>
+		<div class="p-4 float-left col-span-2 md:col-span-1 my-auto">
+			<h1 class="md:text-2xl text-sm font-medium float-left text-white">{todoItem.targetDateString}</h1>
 		</div>
-		<div class="p-4 float-left col-span-1 my-auto">
-			<span class="col-span-1">
+		<div class="p-4 float-left col-span-2 md:col-span-1 my-auto">
+			<span>
 				{#if todoItem.completed}
-					<i class="fas fa-circle-check text-5xl font-medium float-right text-white"></i>
+					<i class="fas fa-circle-check md:text-5xl text-sm font-medium float-right text-white"></i>
 				{:else}
-					<i class="far fa-circle-check text-5xl font-medium float-right text-white"></i>
+					<i class="far fa-circle-check md:text-5xl text-2xl font-medium float-right text-white"></i>
 				{/if}
 			</span>
 		</div>

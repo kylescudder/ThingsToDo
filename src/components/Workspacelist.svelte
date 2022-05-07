@@ -32,45 +32,83 @@
 	});
 </script>
 
-<div class="col-span-2 bg-blue-500 h-full dark:bg-gray-700">
-	<div class="ml-3">
-		{#if isLoading}
-			<Loading />
-		{:else}
-			<div class="grid grid-cols-4 mt-4">
-				<img class="h-8 w-auto col-span-1" src='checklist.png' alt="Checklist Logo" />
-				<p class="text-lg text-white text-center col-span-3">ThingsToDo</p>
-			</div>
-			<section class="mt-4">
-				<p class="mt-4 text-lg font-bold text-white">
-					Categories
-					{#if payload.length !== 0}
-						<HideShowButton />
-					{/if}
-					<Modal
-						show={$modal}
-						unstyled={true}
-						classBg="fixed top-0 left-0 w-screen h-screen flex flex-col justify-center bg-gray-500/[.9] z-10"
-						classWindowWrap="m-2"
-						classWindow="w-2/5 my-2 mx-auto rounded-xl shadow-md"
-						classContent="relative p-2 bg-white dark:bg-gray-700 rounded-xl"
-						closeButton={false}
-					>
-						<i on:click={showModal} class="fas fa-plus cursor-pointer" />
-					</Modal>
-				</p>
-				{#if payload.length !== 0}
-					{#each payload as categoryItem (categoryItem.id)}
-						<Category {categoryItem} {userId} />
-					{/each}
+<input type="checkbox" id="menu-open" class="hidden" />
+<label for="menu-open" data-dev-hint="floating action button"
+	class="absolute right-2 bottom-2 shadow-lg rounded-full p-2 bg-gray-100 text-gray-600 md:hidden z-20">
+	<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+		viewBox="0 0 24 24" stroke="currentColor">
+		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+			d="M4 6h16M4 12h16M4 18h16" />
+	</svg>
+</label>
+
+<header class="bg-blue-500 dark:bg-gray-700 text-gray-100 flex justify-between md:hidden"
+	data-dev-hint="mobile menu bar">
+	<p class="block p-4 text-white font-bold whitespace-nowrap truncate">
+		ThingsToDo
+	</p>
+
+	<label for="menu-open" id="mobile-menu-button" 
+		class="m-2 p-2 focus:outline-none hover:text-white hover:bg-gray-700 rounded-md z-20">
+		<svg id="menu-open-icon" class="h-6 w-6 transition duration-200 ease-in-out"
+			xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+			d="M4 6h16M4 12h16M4 18h16" />
+		</svg>
+		<svg id="menu-close-icon" class="h-6 w-6 transition duration-200 ease-in-out"
+			xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+				d="M6 18L18 6M6 6l12 12" />
+		</svg>
+	</label>
+</header>
+
+<aside id="sidebar" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation"
+	class="bg-blue-500 dark:bg-gray-700 text-gray-100 md:w-64 w-full space-y-6 pt-6 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto z-10">
+	<div class="flex flex-col space-y-6" data-dev-hint="optional div for having an extra footer navigation">
+		<div class="h-ful">
+			<div class="ml-3">
+				{#if isLoading}
+				<Loading />
 				{:else}
-					<p class="text-white text-lg mt-4 text-center">
-						Add a category using the
-						<i class="fas fa-plus" /> icon above.
-					</p>
+					<div class="flex">
+						<img class="h-7 mr-4" src='checklist.png' alt="Checklist Logo" />
+						<span class="text-lg text-white my-auto float-left">ThingsToDo</span>
+					</div>
+					<section class="mt-4">
+						<p class="mt-4 text-lg font-bold text-white">
+							Categories
+							{#if payload.length !== 0}
+								<HideShowButton />
+							{/if}
+							<Modal
+							show={$modal}
+							unstyled={true}
+							classBg="fixed top-0 left-0 w-screen h-screen flex flex-col justify-center bg-gray-500/[.9] z-10"
+							classWindowWrap="m-2"
+							classWindow="md:w-2/5 w-4/5 my-2 mx-auto rounded-xl shadow-md"
+							classContent="relative p-2 bg-white dark:bg-gray-700 rounded-xl"
+							closeButton={false}
+							>
+								<i on:click={showModal} class="fas fa-plus cursor-pointer" />
+							</Modal>
+						</p>
+						{#if payload.length !== 0}
+							{#each payload as categoryItem (categoryItem.id)}
+							<Category {categoryItem} {userId} />
+							{/each}
+						{:else}
+							<p class="text-white text-lg mt-4 text-center">
+								Add a category using the
+								<i class="fas fa-plus" /> icon above.
+							</p>
+						{/if}
+					</section>
 				{/if}
-			</section>
-			<LogoutButton />
-		{/if}
+			</div>
+		</div>
 	</div>
-</div>
+	<nav data-dev-hint="second-main-navigation or footer navigation">
+		<LogoutButton />
+	</nav>
+</aside>
