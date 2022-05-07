@@ -33,12 +33,18 @@
 </script>
 
 <input type="checkbox" id="menu-open" class="hidden" />
-<label for="menu-open" data-dev-hint="floating action button"
-	class="absolute right-2 bottom-2 shadow-lg rounded-full p-2 bg-gray-100 text-gray-600 md:hidden z-20">
-	<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+<label for="menu-open" data-dev-hint="floating action button" id="mobile-menu-button-fab" 
+	class="absolute right-2 bottom-2 rounded-md p-2 text-white md:hidden z-20">
+	<svg id="menu-open-icon-fab" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
 		viewBox="0 0 24 24" stroke="currentColor">
 		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 			d="M4 6h16M4 12h16M4 18h16" />
+	</svg>
+	<svg id="menu-close-icon-fab" data-dev-hint="floating action button"
+		class="h-6 w-6 transition duration-200 ease-in-out" 
+		xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+			d="M6 18L18 6M6 6l12 12" />
 	</svg>
 </label>
 
