@@ -33,8 +33,8 @@
 </script>
 
 <input type="checkbox" id="menu-open" class="hidden" />
-<label for="menu-open" data-dev-hint="floating action button" id="mobile-menu-button-fab" 
-	class="absolute right-2 bottom-2 rounded-md p-2 text-white md:hidden z-20">
+<label for="menu-open" data-dev-hint="floating action button"
+	class="absolute right-2 bottom-2 shadow-lg rounded-full p-2 text-white md:hidden z-20">
 	<svg id="menu-open-icon-fab" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
 		viewBox="0 0 24 24" stroke="currentColor">
 		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
