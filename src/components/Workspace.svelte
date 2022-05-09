@@ -14,7 +14,7 @@
 {#if isLoading}
 	<Loading />
 {:else}
-	<div class="relative min-h-screen md:flex" data-dev-hint="container">		
+	<div class="relative min-h-screen md:flex mobileContainer" data-dev-hint="container">		
 		<WorkspaceList {userId} />
 		<main id="content" class="flex-1 p-6 lg:px-8">
 			<div class="mx-auto">
