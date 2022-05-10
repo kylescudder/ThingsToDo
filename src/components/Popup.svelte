@@ -4,10 +4,10 @@
 
 	export let title: string;
 	let newCategory: string;
-	export let userId: number;
+	export let at: string;
 
 	const categoryAdd = async () => {
-		await addCategory(newCategory, userId);
+		await addCategory(newCategory, at);
 	}
 </script>
 

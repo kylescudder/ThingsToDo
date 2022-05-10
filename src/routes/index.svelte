@@ -2,7 +2,7 @@
 	export const load = async ({ session }) => {
 		return {
 			props: {
-				userId: session.userId
+				at: session.at
 			}
 		};
 	}
@@ -13,7 +13,7 @@
 	import Loading from '../components/Loading.svelte';
 	import { onMount } from 'svelte'
 	import { darkModeSet } from '../lib/darkMode'
-	export let userId: number;
+	export let at: number;
 	export const prerender = true;
 
 	onMount(() => {
@@ -34,7 +34,7 @@
 {#if isLoading}
 	<Loading />
 {:else}
-	{#if !userId}
+	{#if !at}
 		<div class="flex h-screen">
 			<div class="m-auto">
 				<div class="max-w-md w-4/5 mx-auto md:w-full space-y-8 p-8 bg-gray-700 rounded-lg">
@@ -62,6 +62,6 @@
 			</div>
 		</div>
 	{:else}
-		<Workspace {userId} />
+		<Workspace {at} />
 	{/if}
 {/if}

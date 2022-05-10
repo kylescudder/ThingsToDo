@@ -5,13 +5,13 @@
 
 	let todoText: string;
 	let todoDate: Date;
-	export let userId: number;
+	export let at: string;
 
 	const todoAdd = async (categoryId: number, text: string, date: Date) => {
 		if (todoText !== '') {
-			await addToDo(categoryId, text, date, userId);
-			await categoriesPopulate(userId);
-			await getToDo(categoryId, userId);
+			await addToDo(categoryId, text, date, at);
+			await categoriesPopulate(at);
+			await getToDo(categoryId, at);
 			todoText = '';
 			todoDate = new Date(0);
 		}

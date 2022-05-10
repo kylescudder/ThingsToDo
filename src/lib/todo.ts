@@ -11,13 +11,13 @@ apiBaseUrl.subscribe((value) => {
 	payloadApiBaseUrl = value;
 });
 
-export const getToDo = async (categoryId: number, userId: number) => {
+export const getToDo = async (categoryId: number, at: string) => {
 	todos = [];
 	const response = await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: 'GET',
 		headers: {
 			'content-type': 'application/json',
-			'githubId': userId,
+			authorization: `Bearer ${at}`,
 			'categoryId': categoryId
 		}
 	});
@@ -33,7 +33,7 @@ export const getToDo = async (categoryId: number, userId: number) => {
 	categoryID.set(categoryId);
 	todoList.set(todos);
 }
-export const addToDo = async (categoryId: number, todoText: string, todoDate: Date, userId: number) => {
+export const addToDo = async (categoryId: number, todoText: string, todoDate: Date, at: string) => {
 	console.log('addToDo')
 	await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: 'POST',
@@ -44,11 +44,11 @@ export const addToDo = async (categoryId: number, todoText: string, todoDate: Da
 		}),
 		headers: {
 			'content-type': 'application/json',
-			'githubId': userId,
+			authorization: `Bearer ${at}`,
 		}
 	});
 }
-export const clickToDo = async (todoItem: todo, event: MouseEvent, userId: number) => {
+export const clickToDo = async (todoItem: todo, event: MouseEvent, at: string) => {
 	todoItem.completed = !todoItem.completed;
 
 	await fetch(`${payloadApiBaseUrl}/todo`, {
@@ -58,7 +58,7 @@ export const clickToDo = async (todoItem: todo, event: MouseEvent, userId: numbe
 		}),
 		headers: {
 			'content-type': 'application/json',
-			'githubId': userId,
+			authorization: `Bearer ${at}`,
 		}
 	});
 	const target = event.target as HTMLElement;
@@ -67,7 +67,7 @@ export const clickToDo = async (todoItem: todo, event: MouseEvent, userId: numbe
 		if (todoElement !== null) {
 			const categoryId = todoElement.getAttribute('data-categoryid');
 			if (categoryId !== null) {
-				await getToDo(parseInt(categoryId), userId);
+				await getToDo(parseInt(categoryId), at);
 			}
 			successToast(todoItem);
 		}

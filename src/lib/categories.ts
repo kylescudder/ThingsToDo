@@ -12,18 +12,18 @@ apiBaseUrl.subscribe((value) => {
 });
 export let todos: Array<todo> = [];
 
-export const categoriesPopulate = async (userId: number) => {
+export const categoriesPopulate = async (at: string) => {
 	const categoriesResponse = await fetch(`${payloadApiBaseUrl}/categories`, {
 		method: 'POST',
 		headers: {
 			'content-type': 'application/json',
-			'githubId': userId,
+			authorization: `Bearer ${at}`,
 		}
 	});
 	const categoriesPayload = await categoriesResponse.json();
 	categoryList.set(categoriesPayload.payload);
 }
-export const addCategory = async (newCategory: string, userId: number) => {
+export const addCategory = async (newCategory: string, at: string) => {
 	todos = [];
 	const response = await fetch(`${payloadApiBaseUrl}/category`, {
 		method: 'POST',
@@ -32,18 +32,18 @@ export const addCategory = async (newCategory: string, userId: number) => {
 		}),
 		headers: {
 			'content-type': 'application/json',
-			'githubId': userId,
+			authorization: `Bearer ${at}`,
 		}
 	});
 	let categoryId: number;
 	if (response.status === 200) {
 		const payload = await response.json();
 		categoryId = payload.data.categoryId;
-		categoriesPopulate(userId).catch(() => {
+		categoriesPopulate(at).catch(() => {
 			console.log('Getting categories failed');
 		});
 		categoryTEXT.set(newCategory);
-		await getToDo(categoryId, userId);
+		await getToDo(categoryId, at);
 	} else {
 		alert('Failed to add category');
 	}

@@ -4,7 +4,7 @@
 	import { categoryTEXT } from '$lib/stores';
 
 	export let categoryItem: category;
-	export let userId: number;
+	export let at: string;
 
 	const fetchToDo = async (event: MouseEvent) => {
 		const target = event.target as HTMLHeadElement;
@@ -12,7 +12,7 @@
 			categoryTEXT.set(target.innerHTML);
 			const Id = target.getAttribute('data-id');
 			if (Id !== null) {
-				await getToDo(parseInt(Id), userId);
+				await getToDo(parseInt(Id), at);
 			}
 		}
 	}

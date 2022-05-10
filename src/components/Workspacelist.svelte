@@ -11,18 +11,18 @@
 	import { categoriesPopulate } from '../lib/categories';
 	import { categoryList, modal } from '$lib/stores';
 
-	export let userId: number;
+	export let at: string;
 	export let isLoading = false;
 
 	onMount(() => {
 		loadContent();
 	});
 
-	const showModal = () => modal.set(bind(Popup, { title: 'Add category', userId: userId }));
+	const showModal = () => modal.set(bind(Popup, { title: 'Add category', at: at }));
 
 	const loadContent = async () => {
 		isLoading = true;
-		await categoriesPopulate(userId);
+		await categoriesPopulate(at);
 		isLoading = false;
 	}
 	let payload: Array<category> = [];
@@ -101,7 +101,7 @@
 						</p>
 						{#if payload.length !== 0}
 							{#each payload as categoryItem (categoryItem.id)}
-							<Category {categoryItem} {userId} />
+							<Category {categoryItem} {at} />
 							{/each}
 						{:else}
 							<p class="text-white text-lg mt-4 text-center">

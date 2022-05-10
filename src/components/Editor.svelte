@@ -5,7 +5,7 @@
 	import { todoList, categoryTEXT } from '$lib/stores';
 	import AddToDo from './AddToDo.svelte';
 
-	export let userId: number;
+	export let at: string;
 	let payload: Array<todo> = [];
 	todoList.subscribe((value) => {
 		payload = value;
@@ -32,10 +32,10 @@
 			</p>
 		{/if}
 		{#if payloadCategoryText !== ''}
-			<AddToDo {userId} />
+			<AddToDo {at} />
 		{/if}
 		{#each payload as todoItem (todoItem.id)}
-			<ToDo {userId} {todoItem} />
+			<ToDo {at} {todoItem} />
 		{/each}
 	</div>
 </div>

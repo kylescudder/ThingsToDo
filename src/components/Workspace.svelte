@@ -4,7 +4,7 @@
 	import Loading from './Loading.svelte';
 
 	export let isLoading = false;
-	export let userId: number;
+	export let at: string;
 	isLoading = true;
 	setTimeout(() => {
 		isLoading = false;
@@ -15,10 +15,10 @@
 	<Loading />
 {:else}
 	<div class="relative min-h-screen md:flex sm:mobileContainer" data-dev-hint="container">		
-		<WorkspaceList {userId} />
+		<WorkspaceList {at} />
 		<main id="content" class="flex-1 p-6 lg:px-8">
 			<div class="mx-auto">
-					<Editor {userId} />
+					<Editor {at} />
 			</div>
 		</main>
 	</div>

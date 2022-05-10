@@ -2,14 +2,14 @@
 	import type { todo } from '../lib/interfaces';
 	import { clickToDo } from '../lib/todo';
 
-	export let userId: number;
+	export let at: string;
 	export let todoItem: todo;
 </script>
 
 <div
 	class="bg-blue-500 h-full dark:bg-gray-700 cursor-pointer
 	rounded-2xl shadow-xl dark:shadow-slate-300/60 shadow-blue-300/60 todoItem my-8"
-	on:click={(event) => clickToDo(todoItem, event, userId)}
+	on:click={(event) => clickToDo(todoItem, event, at)}
 	data-id={todoItem.id}
 	data-categoryid={todoItem.categoryId}
 >
