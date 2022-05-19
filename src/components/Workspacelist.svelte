@@ -1,25 +1,25 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Modal, { bind } from 'svelte-simple-modal';
+	import { bind } from 'svelte-simple-modal';
 
 	import LogoutButton from './LogoutButton.svelte';
 	import HideShowButton from './HideShowButton.svelte';
 	import Loading from './Loading.svelte';
 	import Category from './Category.svelte';
-	import Popup from './Popup.svelte';
 	import type { category } from '../lib/interfaces';
 	import { categoriesPopulate } from '../lib/categories';
-	import { categoryList, modal } from '$lib/stores';
+	import { categoryList, modal, modalShown } from '$lib/stores';
 	import FaPlus from 'svelte-icons/fa/FaPlus.svelte'
 
 	export let at: string;
 	export let isLoading = false;
-
 	onMount(() => {
 		loadContent();
 	});
 
-	const showModal = () => modal.set(bind(Popup, { title: 'Add category', at: at }));
+	const showModal = () => {
+		modalShown.set(true)
+	};
 
 	const loadContent = async () => {
 		isLoading = true;
@@ -30,6 +30,12 @@
 
 	categoryList.subscribe((value) => {
 		payload = value;
+	});
+
+	let payloadModalShown: boolean;
+
+	modalShown.subscribe((value) => {
+		payloadModalShown = value;
 	});
 </script>
 
@@ -88,18 +94,11 @@
 							{#if payload.length !== 0}
 								<HideShowButton />
 							{/if}
-							<Modal
-							show={$modal}
-							unstyled={true}
-							classBg="fixed top-0 left-0 w-screen h-screen flex flex-col justify-center bg-gray-500/[.9] z-10"
-							classWindowWrap="m-2"
-							classWindow="md:w-2/5 w-4/5 my-2 mx-auto rounded-xl shadow-md"
-							classContent="relative p-2 bg-white dark:bg-gray-700 rounded-xl"
-							closeButton={false}
-							>
-							</Modal>
+
 						</p>
+						<div on:click={showModal} class="cursor-pointer w-8 inline-table">
 							<FaPlus />
+						</div>
 						{#if payload.length !== 0}
 							{#each payload as categoryItem (categoryItem.id)}
 								<label for="menu-open" id="mobile-menu-button">

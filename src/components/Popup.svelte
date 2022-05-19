@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { addCategory } from '../lib/categories';
-	import { modal } from '$lib/stores';
+	import { modal, modalShown } from '$lib/stores';
 	import FaTimes from 'svelte-icons/fa/FaTimes.svelte'
 
 	export let title: string;
@@ -46,7 +46,10 @@
 	<button type="button" on:click={() => categoryAdd()} class="btnAdd">Add</button>
 	<button
 		type="button"
-		on:click={() => modal.set(null)}
+		on:click={() => {
+			modal.set(null)
+			modalShown.set(false)
+		}}
 		class="btnCloseModal"
 		data-bs-dismiss="modal">Close</button
 	>

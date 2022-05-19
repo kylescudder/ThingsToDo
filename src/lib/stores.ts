@@ -8,4 +8,5 @@ export const categoryTEXT = writable('');
 export const apiBaseUrl = readable(import.meta.env.VITE_API_URL);
 export const at = writable(0);
 export const modal = writable(null);
+export const modalShown = writable(false);
 export const hideEmpty = writable(true);
