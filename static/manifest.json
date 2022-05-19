@@ -2,7 +2,7 @@
 	"name": "ThingsToDo",
 	"short_name": "ThingsToDo",
 	"description": "All your To Dos, organised, simplified, accessible...",
-	"start_url": "/app.html",
+	"start_url": "/index.html",
 	"display": "standalone",
 	"background_color": "#3B82F6",
 	"theme_color": "#3B82F6",
