@@ -28,7 +28,7 @@
 				{payloadCategoryText.replace(/&amp;/g, '&')}
 			</div>
 		{:else}
-		<div class="w-64">
+		<div class="w-64 dark:text-white">
 			<div class="dark:text-white text-blue-700 w-8 text-2xl inline-table mr-4">
 				<FaArrowLeft />
 			</div>
