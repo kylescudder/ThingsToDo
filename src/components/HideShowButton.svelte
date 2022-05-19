@@ -3,7 +3,8 @@
 	import { hideEmptyCategories, hideShowButtonTooltip } from '../lib/categories';
 	import { hideEmpty } from '$lib/stores';
 	import Fa from 'svelte-fa'
-	import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+	import pkg from '@fortawesome/free-solid-svg-icons';
+	const { faEye, faEyeSlash } = pkg;
 
 	onMount(() => {
 		hideShowButtonTooltip();

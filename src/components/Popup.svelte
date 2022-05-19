@@ -2,7 +2,8 @@
 	import { addCategory } from '../lib/categories';
 	import { modal } from '$lib/stores';
 	import Fa from 'svelte-fa'
-	import { faXmark } from '@fortawesome/free-solid-svg-icons'
+	import pkg from '@fortawesome/free-solid-svg-icons';
+	const { faXmark } = pkg;
 
 	export let title: string;
 	let newCategory: string;

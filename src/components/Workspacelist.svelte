@@ -11,8 +11,8 @@
 	import { categoriesPopulate } from '../lib/categories';
 	import { categoryList, modal } from '$lib/stores';
 	import Fa from 'svelte-fa'
-	import { faPlus } from '@fortawesome/free-solid-svg-icons'
-
+	import pkg from '@fortawesome/free-solid-svg-icons';
+	const { faPlus } = pkg;
 
 	export let at: string;
 	export let isLoading = false;
