@@ -10,12 +10,7 @@
 	import type { category } from '../lib/interfaces';
 	import { categoriesPopulate } from '../lib/categories';
 	import { categoryList, modal } from '$lib/stores';
-	import Fa from 'svelte-fa'
-	import { faPlus } from '@fortawesome/free-solid-svg-icons'
-	import { library } from '@fortawesome/fontawesome-svg-core';
-	library.add(faPlus);
-
-
+	import FaPlus from 'svelte-icons/fa/FaPlus.svelte'
 
 	export let at: string;
 	export let isLoading = false;
@@ -102,9 +97,9 @@
 							classContent="relative p-2 bg-white dark:bg-gray-700 rounded-xl"
 							closeButton={false}
 							>
-								<Fa on:click={showModal} icon={faPlus} class="cursor-pointer" />
 							</Modal>
 						</p>
+							<FaPlus />
 						{#if payload.length !== 0}
 							{#each payload as categoryItem (categoryItem.id)}
 								<label for="menu-open" id="mobile-menu-button">
@@ -113,8 +108,7 @@
 							{/each}
 						{:else}
 							<p class="text-white text-lg mt-4 text-center">
-								Add a category using the
-								<Fa icon={faPlus} /> icon above.
+								Add a category using the <FaPlus /> icon above.
 							</p>
 						{/if}
 					</section>

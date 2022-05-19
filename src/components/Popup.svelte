@@ -1,10 +1,7 @@
 <script lang="ts">
 	import { addCategory } from '../lib/categories';
 	import { modal } from '$lib/stores';
-	import Fa from 'svelte-fa'
-	import { faXmark } from '@fortawesome/free-solid-svg-icons'
-	import { library } from '@fortawesome/fontawesome-svg-core';
-	library.add(faXmark);
+	import FaTimes from 'svelte-icons/fa/FaTimes.svelte'
 
 	export let title: string;
 	let newCategory: string;
@@ -27,10 +24,13 @@
 		class="btn-close box-content w-4 h-4 p-1 hover:opacity-75"
 		aria-label="Close"
 	>
-		<Fa
-			icon={faXmark} class="text-lg text-black dark:text-white dark:hover:text-white hover:text-black"
-			on:click={() => modal.set(null)}
-		/>
+		<div class="w-6 text-black dark:text-white dark:hover:text-white hover:text-black"
+			on:click={() => {
+				modal.set(null)
+				modalShown.set(false)
+			}}>
+			<FaTimes />
+		</div>
 	</button>
 </div>
 <div class="relative p-4">

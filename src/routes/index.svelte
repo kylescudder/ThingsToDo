@@ -13,12 +13,9 @@
 	import Loading from '../components/Loading.svelte';
 	import { onMount } from 'svelte'
 	import { darkModeSet } from '../lib/darkMode'
-	import Fa from 'svelte-fa'
-	import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
-	import { library } from '@fortawesome/fontawesome-svg-core';
-	library.add(faSignInAlt);
+	import FaSignInAlt from 'svelte-icons/fa/FaSignInAlt.svelte'
 
-	export let at: number;
+	export let at: string;
 	export const prerender = true;
 
 	onMount(() => {
@@ -57,8 +54,10 @@
 								href="/login"
 							>
 								<span class="absolute left-0 inset-y-0 flex items-center pl-3">
-									<Fa icon={faSignInAlt} class="text-indigo-500 group-hover:text-indigo-400" /></span
-								>
+									<div class="text-indigo-500 group-hover:text-indigo-400 w-5">
+										<FaSignInAlt />
+									</div>
+								</span>
 								Login with GitHub
 							</a>
 						</div>
