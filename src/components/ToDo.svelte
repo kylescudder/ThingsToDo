@@ -3,6 +3,8 @@
 	import { clickToDo } from '../lib/todo';
 	import Fa from 'svelte-fa'
 	import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+	import { library } from '@fortawesome/fontawesome-svg-core';
+	library.add(faCircleCheck);
 
 	export let at: string;
 	export let todoItem: todo;

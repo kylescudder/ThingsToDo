@@ -15,6 +15,8 @@
 	import { darkModeSet } from '../lib/darkMode'
 	import Fa from 'svelte-fa'
 	import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+	import { library } from '@fortawesome/fontawesome-svg-core';
+	library.add(faSignInAlt);
 
 	export let at: number;
 	export const prerender = true;

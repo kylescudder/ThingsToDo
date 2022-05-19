@@ -12,6 +12,9 @@
 	import { categoryList, modal } from '$lib/stores';
 	import Fa from 'svelte-fa'
 	import { faPlus } from '@fortawesome/free-solid-svg-icons'
+	import { library } from '@fortawesome/fontawesome-svg-core';
+	library.add(faPlus);
+
 
 
 	export let at: string;

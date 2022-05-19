@@ -4,6 +4,9 @@
 	import { hideEmpty } from '$lib/stores';
 	import Fa from 'svelte-fa'
 	import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+	import { library } from '@fortawesome/fontawesome-svg-core';
+	library.add(faEye);
+	library.add(faEyeSlash);
 
 	onMount(() => {
 		hideShowButtonTooltip();
