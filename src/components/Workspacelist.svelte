@@ -11,7 +11,7 @@
 	import { categoriesPopulate } from '../lib/categories';
 	import { categoryList, modal } from '$lib/stores';
 	import Fa from 'svelte-fa'
-	const { faPlus } = require('@fortawesome/free-solid-svg-icons')
+	import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 	export let at: string;
