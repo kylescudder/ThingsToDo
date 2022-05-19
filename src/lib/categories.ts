@@ -65,7 +65,7 @@ export const hideEmptyCategories = (e: MouseEvent) => {
 	const target = e.target as HTMLElement;
 	if (target !== null) {
 		const categoryHeader = document.querySelectorAll('.categoryHeader');
-		if (target.classList.contains('hiddenCategory')) {
+		if (target.closest('.hideShowCategories')?.classList.contains('hiddenCategory')) {
 			hideEmpty.set(false);
 			showHide(categoryHeader, 'remove');
 		} else {
