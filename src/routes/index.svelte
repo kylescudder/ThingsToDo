@@ -14,7 +14,7 @@
 	import { onMount } from 'svelte'
 	import { darkModeSet } from '../lib/darkMode'
 	import Fa from 'svelte-fa'
-	import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+	const { faSignInAlt } = require('@fortawesome/free-solid-svg-icons')
 
 	export let at: number;
 	export const prerender = true;

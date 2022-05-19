@@ -5,7 +5,7 @@
 	import { todoList, categoryTEXT } from '$lib/stores';
 	import AddToDo from './AddToDo.svelte';
 	import Fa from 'svelte-fa'
-	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+	const { faArrowLeft } = require('@fortawesome/free-solid-svg-icons')
 
 	export let at: string;
 	let payload: Array<todo> = [];
