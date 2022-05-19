@@ -4,10 +4,10 @@
 	import type { todo } from '../lib/interfaces';
 	import { todoList, categoryTEXT } from '$lib/stores';
 	import AddToDo from './AddToDo.svelte';
-	import Fa from 'svelte-fa'
-	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-	import { library } from '@fortawesome/fontawesome-svg-core';
-	library.add(faArrowLeft);
+	//import Fa from 'svelte-fa'
+	//import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+	//import { library } from '@fortawesome/fontawesome-svg-core';
+	//library.add(faArrowLeft);
 
 	export let at: string;
 	let payload: Array<todo> = [];
@@ -32,8 +32,7 @@
 			</div>
 		{:else}
 			<p class="text-2xl dark:text-white text-blue-700">
-				<!--<Fa icon={faArrowLeft} /> Select a category-->
-				<Fa icon={faArrowLeft} />  Select a category
+				<!--<Fa icon={faArrowLeft} />  Select a category-->
 			</p>
 		{/if}
 		{#if payloadCategoryText !== ''}
