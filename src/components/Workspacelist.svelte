@@ -89,7 +89,7 @@
 						<span class="text-lg text-white my-auto float-left">ThingsToDo</span>
 					</div>
 					<section class="mt-4">
-						<p class="mt-4 text-lg font-bold text-white">
+						<p class="mt-4 text-lg font-bold text-white inline-table">
 							Categories
 							{#if payload.length !== 0}
 								<HideShowButton />
