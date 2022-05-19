@@ -101,7 +101,9 @@
 						</p>
 						{#if payload.length !== 0}
 							{#each payload as categoryItem (categoryItem.id)}
-							<Category {categoryItem} {at} />
+								<label for="menu-open" id="mobile-menu-button">
+									<Category {categoryItem} {at} />
+								</label>
 							{/each}
 						{:else}
 							<p class="text-white text-lg mt-4 text-center">
