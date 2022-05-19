@@ -10,6 +10,9 @@
 	import type { category } from '../lib/interfaces';
 	import { categoriesPopulate } from '../lib/categories';
 	import { categoryList, modal } from '$lib/stores';
+	import Fa from 'svelte-fa'
+	import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 
 	export let at: string;
 	export let isLoading = false;
@@ -96,7 +99,7 @@
 							classContent="relative p-2 bg-white dark:bg-gray-700 rounded-xl"
 							closeButton={false}
 							>
-								<i on:click={showModal} class="fas fa-plus cursor-pointer" />
+								<Fa on:click={showModal} icon={faPlus} class="cursor-pointer" />
 							</Modal>
 						</p>
 						{#if payload.length !== 0}
@@ -108,7 +111,7 @@
 						{:else}
 							<p class="text-white text-lg mt-4 text-center">
 								Add a category using the
-								<i class="fas fa-plus" /> icon above.
+								<Fa icon={faPlus} /> icon above.
 							</p>
 						{/if}
 					</section>

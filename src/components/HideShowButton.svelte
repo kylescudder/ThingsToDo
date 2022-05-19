@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import { hideEmptyCategories, hideShowButtonTooltip } from '../lib/categories';
 	import { hideEmpty } from '$lib/stores';
+	import Fa from 'svelte-fa'
+	import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 	onMount(() => {
 		hideShowButtonTooltip();
@@ -14,13 +16,13 @@
 </script>
 
 {#if payloadHideEmpty !== false}
-	<i
-		class="fas fa-eye-slash hiddenCategory hideShowCategories text-white"
+	<Fa icon={faEyeSlash}
+		class="hiddenCategory hideShowCategories text-white"
 		on:click={(event) => hideEmptyCategories(event)}
 	/>
 {:else}
-	<i
-		class="fas fa-eye hideShowCategories text-white"
+	<Fa icon={faEye}
+		class="hideShowCategories text-white"
 		on:click={(event) => hideEmptyCategories(event)}
 	/>
 {/if}

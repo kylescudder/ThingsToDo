@@ -2,13 +2,6 @@
 const staticCacheName = 'site-static'
 const assets = [
 	'/',
-	'./fonts/fontawesome.min.css',
-	'./fonts/regular.min.css',
-	'./fonts/solid.min.css',
-	'./fonts/fa-regular-400.ttf',
-	'./fonts/fa-regular-400.woff2',
-	'./fonts/fa-solid-900.ttf',
-	'./fonts/fa-solid-900.woff2',
 	'./icons/apple-touch-icon.png',
 	'./icons/apple-touch-icon_144x144.png',
 	'./icons/apple-touch-icon_152x152.png',

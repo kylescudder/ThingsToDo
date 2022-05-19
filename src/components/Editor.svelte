@@ -4,6 +4,8 @@
 	import type { todo } from '../lib/interfaces';
 	import { todoList, categoryTEXT } from '$lib/stores';
 	import AddToDo from './AddToDo.svelte';
+	import Fa from 'svelte-fa'
+	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 	export let at: string;
 	let payload: Array<todo> = [];
@@ -28,7 +30,7 @@
 			</div>
 		{:else}
 			<p class="text-2xl dark:text-white text-blue-700">
-				<i class="fas fa-arrow-left" /> Select a category
+				<Fa icon={faArrowLeft} /> Select a category
 			</p>
 		{/if}
 		{#if payloadCategoryText !== ''}

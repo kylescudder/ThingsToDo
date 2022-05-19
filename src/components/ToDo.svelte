@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { todo } from '../lib/interfaces';
 	import { clickToDo } from '../lib/todo';
+	import Fa from 'svelte-fa'
+	import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
 	export let at: string;
 	export let todoItem: todo;
@@ -25,9 +27,9 @@
 		<div class="p-4 float-left col-span-2 md:col-span-1 my-auto">
 			<span>
 				{#if todoItem.completed}
-					<i class="fas fa-circle-check md:text-5xl text-sm font-medium float-right text-white"></i>
+					<Fa icon={faCircleCheck} class="md:text-5xl text-sm font-medium float-right text-white" />
 				{:else}
-					<i class="far fa-circle-check md:text-5xl text-2xl font-medium float-right text-white"></i>
+					<Fa icon={faCircleCheck} class="md:text-5xl text-2xl font-medium float-right text-white" />
 				{/if}
 			</span>
 		</div>

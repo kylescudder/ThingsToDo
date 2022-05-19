@@ -41,10 +41,12 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.5.8",
+		"@fortawesome/free-solid-svg-icons": "^6.1.1",
 		"@lukeed/uuid": "^2.0.0",
 		"cookie": "^0.5.0",
 		"dayjs": "^1.11.1",
 		"simple-notify": "^0.5.5",
+		"svelte-fa": "^2.4.0",
 		"tippy.js": "^6.3.7"
 	}
 }
