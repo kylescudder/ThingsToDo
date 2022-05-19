@@ -2,8 +2,7 @@
 	import type { todo } from '../lib/interfaces';
 	import { clickToDo } from '../lib/todo';
 	import Fa from 'svelte-fa'
-	import pkg from '@fortawesome/free-solid-svg-icons';
-	const { faCircleCheck } = pkg;
+	import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
 	export let at: string;
 	export let todoItem: todo;
