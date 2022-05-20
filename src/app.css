@@ -479,7 +479,7 @@ button.btnAdd {
 @media (min-width: 768px) {
 	/* md */
 	.mobileContainer {
-		height: 100vh;
+		height: 100%;
 		min-height: 100vh;
 	}
 }
