@@ -27,7 +27,7 @@
 {#if isLoading}
 	<Loading />
 {:else}
-	<div class="relative min-h-screen md:flex mobileContainer" data-dev-hint="container">		
+	<div class="relative min-h-screen md:flex" data-dev-hint="container">		
 		<Modal
 			show={$modal}
 			unstyled={true}
