@@ -490,3 +490,6 @@ button.btnAdd {
 .mobileContainer {
 	min-height: -webkit-fill-available;
 }
+.desktopContainer {
+	min-height: 100vh;
+}
