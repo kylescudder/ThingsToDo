@@ -96,7 +96,7 @@
 							{/if}
 
 						</p>
-						<div on:click={showModal} class="cursor-pointer w-8 inline-table">
+						<div on:click={showModal} class="cursor-pointer w-6 inline-table">
 							<FaPlus />
 						</div>
 						{#if payload.length !== 0}

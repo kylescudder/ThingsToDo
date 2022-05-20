@@ -16,12 +16,12 @@
 </script>
 
 {#if payloadHideEmpty !== false}
-	<div class="w-8 inline-table hiddenCategory hideShowCategories text-white"
+	<div class="w-6 inline-table hiddenCategory hideShowCategories text-white"
 		on:click={(event) => hideEmptyCategories(event)}>
 		<FaEyeSlash />
 	</div>
 {:else}
-	<div class="w-8 inline-table hideShowCategories text-white"
+	<div class="w-6 inline-table hideShowCategories text-white"
 		on:click={(event) => hideEmptyCategories(event)}>
 		<FaEye />
 	</div>
