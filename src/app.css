@@ -30,7 +30,6 @@
 body::before {
 	content: '';
 	width: 80vw;
-	height: 100vh;
 	position: absolute;
 	top: 0;
 	left: 10vw;
