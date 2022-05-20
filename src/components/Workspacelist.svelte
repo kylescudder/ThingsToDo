@@ -76,8 +76,8 @@
 <aside id="sidebar" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation"
 	class="bg-blue-500 dark:bg-gray-700 text-gray-100 md:w-64 w-full space-y-6 pt-6 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto z-10">
 	<div class="flex flex-col space-y-6" data-dev-hint="optional div for having an extra footer navigation">
-		<div class="h-ful">
-			<div class="ml-3">
+		<div>
+			<div class="mx-3">
 				{#if isLoading}
 				<Loading />
 				{:else}
