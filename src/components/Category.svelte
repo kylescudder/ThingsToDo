@@ -7,10 +7,11 @@
 	export let at: string;
 
 	const fetchToDo = async (event: MouseEvent) => {
-		const target = event.target as HTMLHeadElement;
-		if (target !== null) {
-			categoryTEXT.set(target.innerHTML);
-			const Id = target.getAttribute('data-id');
+		const target = event.target as HTMLDivElement;
+		const categoryTarget = target.closest('.categoryHeader')
+		if (categoryTarget !== null) {
+			categoryTEXT.set(categoryTarget.firstElementChild?.innerHTML || '');
+			const Id = categoryTarget.getAttribute('data-id');
 			if (Id !== null) {
 				await getToDo(parseInt(Id), at);
 			}
@@ -18,12 +19,13 @@
 	}
 </script>
 
-<h2
+<div 
 	on:click={(event) => fetchToDo(event)}
-	class="categoryHeader m-2 w-auto text-white cursor-pointer hover:text-gray-400"
+	class="categoryHeader"
 	class:hidden={categoryItem.toDoCount === 0}
 	data-count={categoryItem.toDoCount}
-	data-id={categoryItem.id}
->
-	{categoryItem.text}
-</h2>
+	data-id={categoryItem.id}>
+	<div class="my-8 w-auto text-white text-2xl md:text-lg cursor-pointer hover:text-gray-400">
+		{categoryItem.text}
+	</div>
+</div>
