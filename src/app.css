@@ -444,19 +444,15 @@ button.btnAdd {
 #sidebar {
 		--tw-translate-x: -100%;
 }
-#menu-close-icon, #menu-close-icon-fab {
+#menu-close-icon {
 		display: none;
 }
-
 #menu-open:checked ~ #sidebar {
 		--tw-translate-x: 0;
 }
 #menu-open:checked ~ * #mobile-menu-button {
 		background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
 }
-#menu-open:checked ~ #mobile-menu-button-fab {
-		background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-}
 #menu-open:checked ~ * #menu-open-icon {
 		display: none;
 }
@@ -467,18 +463,6 @@ button.btnAdd {
 		display: none;
 }
 #menu-open:checked ~ * #menu-close-icon {
-		display: block;
-}
-#menu-open:checked ~ * #menu-open-icon-fab {
-		display: none;
-}
-#menu-open:checked ~ * #menu-close-icon-fab {
-		display: block;
-}
-#menu-open:checked ~ * #menu-open-icon-fab {
-		display: none;
-}
-#menu-open:checked ~ * #menu-close-icon-fab {
 		display: block;
 }
 
