@@ -40,8 +40,8 @@
 </script>
 
 <input type="checkbox" id="menu-open" class="hidden" />
-<label for="menu-open" data-dev-hint="floating action button"
-	class="absolute right-2 bottom-2 shadow-lg rounded-full p-2 text-white md:hidden z-20">
+<label for="menu-open" id="mobile-menu-button-fab" data-dev-hint="floating action button"
+	class="absolute right-6 bottom-10 shadow-lg hover:text-white bg-blue-500 dark:bg-gray-700 dark:hover:bg-gray-700 rounded-md p-2 text-white md:hidden z-20">
 	<svg id="menu-open-icon-fab" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
 		viewBox="0 0 24 24" stroke="currentColor">
 		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,7 +62,7 @@
 	</p>
 
 	<label for="menu-open" id="mobile-menu-button" 
-		class="m-2 p-2 focus:outline-none hover:text-white hover:bg-gray-700 rounded-md z-20">
+		class="m-2 p-2 focus:outline-none hover:text-white hover:bg-gray-700 bg-blue-500 dark:bg-gray-700 rounded-md z-20">
 		<svg id="menu-open-icon" class="h-6 w-6 transition duration-200 ease-in-out"
 			xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
