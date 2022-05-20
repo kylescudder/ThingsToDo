@@ -37,6 +37,18 @@
 	modalShown.subscribe((value) => {
 		payloadModalShown = value;
 	});
+
+	const bodyPosition = () => {
+		const menuOpen = document.getElementById('menu-open') as HTMLInputElement
+		if (menuOpen.checked) {
+			document.body.classList.remove('fixed', 'w-screen')
+		} else {
+			const mediaQuery = window.matchMedia('(max-width: 768px)')
+			if (mediaQuery.matches) {
+				document.body.classList.add('fixed', 'w-screen')
+			}
+		}
+	}
 </script>
 
 <input type="checkbox" id="menu-open" class="hidden" />
@@ -46,7 +58,7 @@
 		ThingsToDo
 	</p>
 
-	<label for="menu-open" id="mobile-menu-button" 
+	<label for="menu-open" id="mobile-menu-button" on:click={() => {bodyPosition()}}
 		class="m-2 p-2 focus:outline-none hover:text-white hover:bg-gray-700 bg-blue-500 dark:bg-gray-700 rounded-md z-20">
 		<svg id="menu-open-icon" class="h-6 w-6 transition duration-200 ease-in-out"
 			xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -86,7 +98,7 @@
 						</div>
 						{#if payload.length !== 0}
 							{#each payload as categoryItem (categoryItem.id)}
-								<label for="menu-open" id="mobile-menu-button">
+								<label for="menu-open" id="mobile-menu-button" on:click={() => {bodyPosition()}}>
 									<Category {categoryItem} {at} />
 								</label>
 							{/each}
