@@ -491,6 +491,3 @@ button.btnAdd {
 .mobileContainer {
 	min-height: -webkit-fill-available;
 }
-svg {
-	display: inline !important;
-}
