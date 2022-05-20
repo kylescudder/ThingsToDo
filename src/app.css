@@ -487,9 +487,16 @@ button.btnAdd {
 				--tw-translate-x: 0;
 		}
 }
-.mobileContainer {
-	min-height: -webkit-fill-available;
+@media (min-width: 640px) {
+	/* sm */
+	.mobileContainer {
+		min-height: -webkit-fill-available;
+	}
 }
-.desktopContainer {
-	min-height: 100vh;
+@media (min-width: 768px) {
+	/* md */
+	.mobileContainer {
+		height: 100vh;
+		min-height: 100vh;
+	}
 }
