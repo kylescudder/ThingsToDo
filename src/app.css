@@ -487,12 +487,10 @@ button.btnAdd {
 				--tw-translate-x: 0;
 		}
 }
-@media (min-width: 640px) {
-	/* sm */
-	.mobileContainer {
-		min-height: -webkit-fill-available;
-	}
+.mobileContainer {
+	min-height: -webkit-fill-available;
 }
+
 @media (min-width: 768px) {
 	/* md */
 	.mobileContainer {
