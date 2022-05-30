@@ -24,7 +24,7 @@
 		class="btn-close box-content w-4 h-4 p-1 hover:opacity-75"
 		aria-label="Close"
 	>
-		<div class="w-6 text-black dark:text-white dark:hover:text-white hover:text-black"
+		<div class="w-2 md:w-6 text-black dark:text-white dark:hover:text-white hover:text-black"
 			on:click={() => {
 				modal.set(null)
 				modalShown.set(false)
