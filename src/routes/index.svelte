@@ -30,7 +30,7 @@
 </script>
 
 <svelte:head>
-	<title>Sign in</title>
+	<title>ThingsToDo</title>
 </svelte:head>
 
 {#if isLoading}
