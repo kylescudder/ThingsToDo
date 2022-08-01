@@ -442,34 +442,34 @@ button.btnAdd {
 	left: 0.75rem;
 }
 #sidebar {
-		--tw-translate-x: -100%;
+	--tw-translate-x: -100%;
 }
 #menu-close-icon {
-		display: none;
+	display: none;
 }
 #menu-open:checked ~ #sidebar {
-		--tw-translate-x: 0;
+	--tw-translate-x: 0;
 }
 #menu-open:checked ~ * #mobile-menu-button {
-		background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+	background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
 }
 #menu-open:checked ~ * #menu-open-icon {
-		display: none;
+	display: none;
 }
 #menu-open:checked ~ * #menu-close-icon {
-		display: block;
+	display: block;
 }
 #menu-open:checked ~ * #menu-open-icon {
-		display: none;
+	display: none;
 }
 #menu-open:checked ~ * #menu-close-icon {
-		display: block;
+	display: block;
 }
 
 @media (min-width: 768px) {
-		#sidebar {
-				--tw-translate-x: 0;
-		}
+	#sidebar {
+		--tw-translate-x: 0;
+	}
 }
 .mobileContainer {
 	height: calc(100vh + 5rem);

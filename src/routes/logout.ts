@@ -7,9 +7,7 @@ export const get = async (request: RequestHandler) => {
 		status: 302,
 		headers: {
 			location: '/',
-			'set-cookie': [
-				`at=; expires=Thu, 18 Dec 2013 12:00:00 UTC; Path=/; HttpOnly`
-			]
+			'set-cookie': [`at=; expires=Thu, 18 Dec 2013 12:00:00 UTC; Path=/; HttpOnly`]
 		}
 	};
-}
+};

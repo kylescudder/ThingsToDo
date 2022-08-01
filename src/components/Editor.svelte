@@ -4,7 +4,7 @@
 	import type { todo } from '../lib/interfaces';
 	import { todoList, categoryTEXT } from '$lib/stores';
 	import AddToDo from './AddToDo.svelte';
-	import FaArrowLeft from 'svelte-icons/fa/FaArrowLeft.svelte'
+	import FaArrowLeft from 'svelte-icons/fa/FaArrowLeft.svelte';
 
 	export let at: string;
 	let payload: Array<todo> = [];
@@ -28,12 +28,12 @@
 				{payloadCategoryText.replace(/&amp;/g, '&')}
 			</div>
 		{:else}
-		<div class="w-64 dark:text-white">
-			<div class="dark:text-white text-blue-700 w-6 text-2xl inline-table mr-4">
-				<FaArrowLeft />
+			<div class="w-64 dark:text-white">
+				<div class="dark:text-white text-blue-700 w-6 text-2xl inline-table mr-4">
+					<FaArrowLeft />
+				</div>
+				Select a category
 			</div>
-			 Select a category
-		</div>
 		{/if}
 		{#if payloadCategoryText !== ''}
 			<AddToDo {at} />

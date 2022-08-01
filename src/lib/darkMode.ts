@@ -3,12 +3,12 @@ export const darkModeSet = () => {
 	if (localStorage.getItem('color-theme') === 'dark') {
 		setDarkTheme();
 	}
-}
+};
 const toggleDarkMode = () => {
-		const themeToggleBtn = document.querySelector('.toggle--label') as HTMLLabelElement;
+	const themeToggleBtn = document.querySelector('.toggle--label') as HTMLLabelElement;
 
 	if (themeToggleBtn !== null) {
-		themeToggleBtn.addEventListener('click',() => {
+		themeToggleBtn.addEventListener('click', () => {
 			// if set via local storage previously
 			if (localStorage.getItem('color-theme')) {
 				if (
@@ -31,19 +31,19 @@ const toggleDarkMode = () => {
 			}
 		});
 	}
-}
+};
 export const setToggle = () => {
-	toggleDarkMode()
+	toggleDarkMode();
 	const themeToggleCheckbox = document.querySelector('.toggle--checkbox') as HTMLInputElement;
 	if (localStorage.getItem('color-theme') === 'dark') {
 		themeToggleCheckbox.checked = true;
 	}
-}
+};
 const setLightTheme = () => {
 	document.documentElement.classList.remove('dark');
 	localStorage.setItem('color-theme', 'light');
-}
+};
 const setDarkTheme = () => {
 	document.documentElement.classList.add('dark');
 	localStorage.setItem('color-theme', 'dark');
-}
+};

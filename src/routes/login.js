@@ -8,4 +8,4 @@ export const get = async () => {
 			location: `${target}?client_id=${clientId}&state=${sessionId}`
 		}
 	};
-}
+};

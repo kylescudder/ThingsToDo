@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { todo } from '../lib/interfaces';
 	import { clickToDo } from '../lib/todo';
-	import FaCheckCircle from 'svelte-icons/fa/FaCheckCircle.svelte'
-	import FaRegCheckCircle from 'svelte-icons/fa/FaRegCheckCircle.svelte'
+	import FaCheckCircle from 'svelte-icons/fa/FaCheckCircle.svelte';
+	import FaRegCheckCircle from 'svelte-icons/fa/FaRegCheckCircle.svelte';
 
 	export let at: string;
 	export let todoItem: todo;
@@ -22,7 +22,9 @@
 			>
 		</div>
 		<div class="p-4 float-left col-span-2 md:col-span-1 my-auto">
-			<h1 class="md:text-2xl text-sm font-medium float-left text-white">{todoItem.targetDateString}</h1>
+			<h1 class="md:text-2xl text-sm font-medium float-left text-white">
+				{todoItem.targetDateString}
+			</h1>
 		</div>
 		<div class="p-4 float-left col-span-2 md:col-span-1 my-auto">
 			<span>

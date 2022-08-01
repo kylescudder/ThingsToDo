@@ -7,9 +7,7 @@ export const get = async (request: RequestHandler) => {
 		status: 302,
 		headers: {
 			location: '/',
-			'set-cookie': [
-				`at=${code || ''}; Path=/; HttpOnly`
-			]
+			'set-cookie': [`at=${code || ''}; Path=/; HttpOnly`]
 		}
 	};
-}
+};

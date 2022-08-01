@@ -18,7 +18,7 @@ export const getToDo = async (categoryId: number, at: string) => {
 		headers: {
 			'content-type': 'application/json',
 			authorization: `Bearer ${at}`,
-			'categoryId': categoryId
+			categoryId: categoryId
 		}
 	});
 	if (response.status === 200) {
@@ -32,9 +32,9 @@ export const getToDo = async (categoryId: number, at: string) => {
 	}
 	categoryID.set(categoryId);
 	todoList.set(todos);
-}
+};
 export const addToDo = async (categoryId: number, todoText: string, todoDate: Date, at: string) => {
-	console.log('addToDo')
+	console.log('addToDo');
 	await fetch(`${payloadApiBaseUrl}/todo`, {
 		method: 'POST',
 		body: JSON.stringify({
@@ -44,10 +44,10 @@ export const addToDo = async (categoryId: number, todoText: string, todoDate: Da
 		}),
 		headers: {
 			'content-type': 'application/json',
-			authorization: `Bearer ${at}`,
+			authorization: `Bearer ${at}`
 		}
 	});
-}
+};
 export const clickToDo = async (todoItem: todo, event: MouseEvent, at: string) => {
 	todoItem.completed = !todoItem.completed;
 
@@ -58,7 +58,7 @@ export const clickToDo = async (todoItem: todo, event: MouseEvent, at: string) =
 		}),
 		headers: {
 			'content-type': 'application/json',
-			authorization: `Bearer ${at}`,
+			authorization: `Bearer ${at}`
 		}
 	});
 	const target = event.target as HTMLElement;
@@ -72,7 +72,7 @@ export const clickToDo = async (todoItem: todo, event: MouseEvent, at: string) =
 			successToast(todoItem);
 		}
 	}
-}
+};
 const successToast = async (todoItem: todo) => {
 	let title: string;
 	let text: string;
@@ -100,4 +100,4 @@ const successToast = async (todoItem: todo) => {
 		type: 1,
 		position: 'right bottom'
 	});
-}
+};

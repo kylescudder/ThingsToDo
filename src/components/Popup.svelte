@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { addCategory } from '../lib/categories';
 	import { modal, modalShown } from '$lib/stores';
-	import FaTimes from 'svelte-icons/fa/FaTimes.svelte'
+	import FaTimes from 'svelte-icons/fa/FaTimes.svelte';
 
 	export let title: string;
 	let newCategory: string;
@@ -9,7 +9,7 @@
 
 	const categoryAdd = async () => {
 		await addCategory(newCategory, at);
-	}
+	};
 </script>
 
 <div class="flex flex-shrink-0 items-center justify-between p-4">
@@ -24,11 +24,13 @@
 		class="btn-close box-content w-4 h-4 p-1 hover:opacity-75"
 		aria-label="Close"
 	>
-		<div class="w-2 md:w-4 text-black dark:text-white dark:hover:text-white hover:text-black"
+		<div
+			class="w-2 md:w-4 text-black dark:text-white dark:hover:text-white hover:text-black"
 			on:click={() => {
-				modal.set(null)
-				modalShown.set(false)
-			}}>
+				modal.set(null);
+				modalShown.set(false);
+			}}
+		>
 			<FaTimes />
 		</div>
 	</button>
@@ -47,8 +49,8 @@
 	<button
 		type="button"
 		on:click={() => {
-			modal.set(null)
-			modalShown.set(false)
+			modal.set(null);
+			modalShown.set(false);
 		}}
 		class="btnCloseModal"
 		data-bs-dismiss="modal">Close</button

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { setToggle } from '../lib/darkMode'
+	import { setToggle } from '../lib/darkMode';
 
 	onMount(() => {
-		setToggle()
-	})
+		setToggle();
+	});
 </script>
 
 <input type="checkbox" id="toggle" class="toggle--checkbox" />

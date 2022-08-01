@@ -1,4 +1,3 @@
-
 //const staticCacheName = 'site-static'
 //const assets = [
 //	'./icons/apple-touch-icon.png',
