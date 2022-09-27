@@ -28,7 +28,7 @@
 		"netlify-cli": "^10.13.0",
 		"postcss": "^8.4.14",
 		"prettier": "^2.7.1",
-		"prettier-plugin-svelte": "^2.7.0",
+		"prettier-plugin-svelte": "^2.7.1",
 		"svelte": "^3.47.0",
 		"svelte-check": "^2.8.0",
 		"svelte-preprocess": "^4.10.7",
